@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DEMO 1</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="../css/css.css">
+</head>
+<body>
+    <div class="container col-12">
+        <div class="col-6 mx-auto hijo" style="margin-top: 100px;">
+            <h1 class="col-10 mx-auto" style="margin:20px;color: white;">Login</h1>
+            <div class="col-11 mx-auto text-center" style="margin:40px">
+                <label id="correo" class="col-10" >Usuario</label><br>
+                <input class="col-8 input" type="email"  id="correoUsuario" autocomplete="off" placeholder="Correo"><br>
+                <label class="col-10" id="pass" class="" >Contraseña</label><br>
+                <input class="col-8 input" type="password" id="password" autocomplete="off" placeholder="Contraseña">
+                <button type="submit" value="Ingresar" onclick="ingresar()"  class="col-4" style="margin: 15px; border: solid 1px white;border-radius: 10px;  background-color: white; padding: 7px;">Ingresar</button>
+            </div>
+        </div>
+        <div class="col-10 hijo2 mx-auto" style="margin-top: 10px; padding: 10px;">
+            <h3 style="margin:20px;color: white;"> - Log de ingreso</h3>
+            <div class="col-10 mx-auto" id="log_ingreso" style="background-color: black; padding: 20px;">
+
+
+            </div>
+        </div>
+        
+    </div>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script src="js.js"></script>
+</body>
+</html>
