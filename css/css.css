@@ -46,6 +46,19 @@ nav{
 .inten_box2{
     border-radius: 12px;
     background-color:#04BFBF;
+    border: 1px solid #04BFBF;
+}
+.button1{
+    border-radius: 12px;
+    background-color:#04BFBF;
+    border: 1px solid #04BFBF;
+    color: white;
+}
+.button1:hover{
+    border-radius: 12px;
+    background-color:white;
+    border: 2px solid black;
+    color: #04BFBF;
 }
 .p1{
     color: white;
@@ -55,4 +68,11 @@ nav{
     color: #012626;
     font-weight: bold;
 }
-
+.fount1{
+    font-family: 'Bebas Neue', cursive;
+}
+.divSeparador{
+    border: 5px solid #04BFBF;
+    border-top: none;
+    border-bottom: none;
+}
