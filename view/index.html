@@ -15,10 +15,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="../images/360.ico">
 </head>
 <body>
     <div>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light"> 
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="navbar_360" style="padding: 0px;"> 
           <!--1 contenedor fluido por boostrap -->
           <div class="container-fluid ">
             <a class="navbar-brand" href="#" id="imagen_nav"><img src="../images/nav360.png" alt="Integral Solution" style="margin-left: 20px;" width="90px"></a>
@@ -32,16 +33,16 @@
                         <a class="nav-link aNvbar linkNav" href="">Comunidad</a>
                     </li> -->
                     <li class="nav-item">
-                        <a class="nav-link aNvbar linkNav" href="">Nosotros</a>
+                        <a class="nav-link aNvbar linkNav text-center" href="#nosotros_360">Nosotros</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link aNvbar linkNav" href="">Planes</a>
+                        <a class="nav-link aNvbar linkNav text-center" href="#planes_360">Planes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link aNvbar linkNav" href="">Contacto</a>
+                        <a class="nav-link aNvbar linkNav text-center" href="#contactanos_360">Contacto</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link aNvbar linkNav" href="">Ingreso</a>
+                    <li class="nav-item my-auto">
+                        <a class="nav-link aNvbar linkNav text-center aLink my-auto" href="">Ingreso</a>
                     </li>
                 </ul>
             </div>
@@ -50,11 +51,12 @@
           <!-- fin1 contenedor fluido por boostrap -->
         </nav>
     </div>
-    <div class="container-fluid" style="margin-top: 10px; margin-bottom: 20px;">
+    <div class="container-fluid" style="margin-top: 61px; margin-bottom: 20px;" data-bs-spy="scroll" data-bs-target="#navbar_360" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true"  tabindex="0">
+
         <div class="row col-12 mx-auto">
             <img src="../images/home_page1.png" class=" col-12 mx-auto" alt="Te ayudamos a lograr tus objetivos">
         </div>
-        <div class="row col-11 mx-auto" style="margin-top:5px;">
+        <div class="row col-11 mx-auto" style="margin-top:5px;" id="nosotros_360">
             <div class="inten_box col-lg-3 col-md-4 col-sm-5 col-12 mx-auto text-center" style="padding: 20px;margin: 10px;">
                 <p class="text-center p1" style="font-size: x-large;">Define tu meta</p>
                 <p class="col-lg-9 p1 text-center mx-auto">Crea tu meta y lograla con el acompañamiento continuo de nuestros profesionales que estan para apoyarte en tu proceso.</p>
@@ -69,37 +71,60 @@
             </div>
 
         </div>
+        <div class="row col-md-12 mx-auto" style="margin-top: 50px;">
+            <div class="col-lg-4 col-md-6 col-sm-10 col-11 mx-auto text-center" style="margin-top: 20px; padding: 20px;">
+                
+                <p class="col-10 mx-auto text-center" style="font-size: 20px;margin-bottom: 10px;"> Somos una plataforma que reúne entrenamiento físico personalizado y planes de nutrición que permiten tener una vida saludable teniendo en cuenta tus necesidades.
+                </p>
+                <img src="../images/view_1.png" class="img-fluid " alt="disponibles" style="width: 400px;">
+
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-10 col-11 mx-auto text-center" style="padding: 10px;margin-top: 20px;background-color: black;">
+                <img src="../images/view_2.png" class="img-fluid " alt="disponibles" style="width: 400px; margin-top: 10px;">
+                <p class="col-10 mx-auto text-center" style="font-size: 20px;margin-top: 20px; color: white;"> Puedes combinar tu entrenamiento físico personalizado y tu plan de nutrición para que de esta manera puedas evidenciar un avance más rápido de lo esperado.</p>
+
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-10 col-11 mx-auto text-center" style="margin-top: 20px;padding: 10px;">
+                
+                <p class="col-10 mx-auto text-center" style="font-size: 20px;margin-bottom: 40px;"> Si solo deseas mejorar tu forma de comer, adquiere los planes de nutrición que te permitirán controlar aquellos alimentos que te gustan y te pueden hacer mal. </p>
+                <img src="../images/view_3.png" class="img-fluid " alt="disponibles" style="width: 400px;">
+
+
+            </div>
+
+        </div>
         <div class="row col-10 mx-auto" style="margin-top: 50px;" >
             <div class="col-lg-5 col-md-5 col-sm-8 col-11 mx-auto my-auto">
-                <p class="col-12 fount1" style="font-size:80px; font-weight: bold; font-style: oblique; color: #00a7a7;">DISPONIBLE EN TODO MOMENTO</p>
+                <p class="col-12 fount1" style="font-size:70px; font-weight: bold; font-style: oblique; color: #00a7a7;">DISPONIBLE EN TODO MOMENTO</p>
             </div>
             <div class="col-lg-5 col-md-5 col-sm-8 col-11 mx-auto text-center">
-                <img src="../images/previews.png" class="img-fluid col-12 mx-auto" alt="disponibles" >
+                <img src="../images/previews.png" class="img-fluid col-12 mx-auto" alt="disponibles" style="width: 450px;" >
             </div>
         </div>
 
-        <div class="row col-11 mx-auto" style="margin-top: 60px;">
+        <div class="row col-11 mx-auto" style="margin-top: 60px;" id="planes_360">
             <div class="col-12 mx-auto my-auto">
+                <hr style="background-color: black; height: 7px; border-radius: 10px; color: black;" class="opacity-100">
                 <p class="col-11 fount1 text-end" style="font-size:50px; font-weight: bold; font-style: oblique; color: #00a7a7;">PLANES FITNNES</p>
-                <hr style="background-color: black; height: 10px; border-radius: 10px; color: black;" class="opacity-100">
+                <hr style="background-color: black; height: 7px; border-radius: 10px; color: black;" class="opacity-100">
             </div>
 
         </div>
         <div class="row col-md-9 col-sm-11 col-12 mx-auto" style="margin-top: 50px;">
             <div class="col-lg-4 col-md-6 col-sm-10 col-11 mx-auto divSeparador" style="margin-top: 20px;">
-                <p class="col-12 fount1 text-center" style="font-size:40px; font-weight: bold; font-style: oblique; color: black; margin-bottom: 70px;">PLANES SPORT</p>
+                <p class="col-12 fount1 text-center" style="font-size:40px; font-weight: bold; font-style: oblique; color: black; margin-bottom: 70px;">PLAN SPORT</p>
                 <p class="col-10 mx-auto" style="font-size: 25px;margin-bottom: 30px;"> - Acceso a la plataforma.</p>
                 <p class="col-10 mx-auto" style="font-size: 25px;margin-bottom: 30px;"> - Acompañamiento integral por parte de especialistas en rutinas deportivas.</p>
                 <p class="col-10 mx-auto" style="font-size: 25px;margin-bottom: 30px;"> - Seguimiento de los planes deportivos dados.</p>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-10 col-11 mx-auto divSeparador" style="margin-top: 20px;">
-                <p class="col-12 fount1 text-center" style="font-size:40px; font-weight: bold; font-style: oblique; color: black;margin-bottom: 70px;">PLANES HEALTH</p>
+                <p class="col-12 fount1 text-center" style="font-size:40px; font-weight: bold; font-style: oblique; color: black;margin-bottom: 70px;">PLAN HEALTH</p>
                 <p class="col-10 mx-auto" style="font-size: 25px;margin-bottom: 30px;"> - Acceso a la plataforma.</p>
                 <p class="col-10 mx-auto" style="font-size: 25px;margin-bottom: 30px;"> - Acompañamiento integral por parte de especialistas en nutrición.</p>
                 <p class="col-10 mx-auto" style="font-size: 25px;margin-bottom: 30px;"> - Seguimiento de los planes de nutrición dados.</p>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-10 col-11 mx-auto divSeparador" style="margin-top: 20px;">
-                <p class="col-12 fount1 text-center" style="font-size:40px; font-weight: bold; font-style: oblique; color: black;margin-bottom: 70px;">PLANES COMPLETE</p>
+                <p class="col-12 fount1 text-center" style="font-size:40px; font-weight: bold; font-style: oblique; color: black;margin-bottom: 70px;">PLAN COMPLETE</p>
                 <p class="col-10 mx-auto" style="font-size: 25px;margin-bottom: 30px;"> - Acceso a la plataforma.</p>
                 <p class="col-10 mx-auto" style="font-size: 25px;margin-bottom: 30px;"> - Acompañamiento integral por parte de especialistas en rutinas deportivas.</p>
                 <p class="col-10 mx-auto" style="font-size: 25px;margin-bottom: 30px;"> - Acompañamiento integral por parte de especialistas en nutrición.</p>
@@ -110,12 +135,21 @@
         <div class="row col-9 mx-auto" style="margin-top: 50px;">
             <button  type="submit" class="col-lg-3 col-md-4 col-sm-5 col-8 button1 mx-auto" style="padding: 10px; font-weight: bold; margin-bottom: 30px;" title="Únete a 360">Únete</button>
         </div>
-        <div class="col-12 row mx-auto" style="background-color: #012626;" style="margin-top: 50px;padding-bottom: 50px;">
-            <p class="col-11 fount1 mx-auto" style="font-size:80px; font-weight: bold; font-style: oblique; color: #00a7a7; margin-top: 30px; margin-bottom: 0px;">CONTACTANOS</p>
+        <div class="col-12 row mx-auto" style="background-color: #012626;" style="margin-top: 50px;padding-bottom: 50px;" id="contactanos_360">
+            <p class="col-11 fount1 mx-auto" style="font-size:70px; font-weight: bold; font-style: oblique; color: #00a7a7; margin-top: 30px; margin-bottom: 0px;">CONTACTANOS</p>
             <hr style="background-color: white; height: 7px; border-radius: 10px; color: white;" class="col-11 mx-auto opacity-100">
-            <div class="col-10 mx-auto row">
+            <div class="col-12 mx-auto row">
                 <div  class="col-lg-5 col-md-5 col-sm-8 col-11">
-                    <p class="col-11 fount1 mx-auto text-center" style="font-size:30px; font-weight: bold; color: white; margin-top: 30px; margin-bottom: 0px;">Siguenos en nuestras redes sociales.</p>
+                    <p class="col-11 fount1 mx-auto text-center" style="font-size:30px; font-weight: bold; color: white; margin-top: 70px; margin-bottom: 0px;">Siguenos en nuestras redes sociales.</p>
+
+                    <div class="col-12 text-center mx-auto" style=" margin-top: 20px;">
+                        
+                        <a target="_blank" href="https://www.instagram.com/integralfitness360/" class="col-3 mx-auto text-center" style="margin:9px;"><img src="../images/instagram.png" class="img-fluid " alt="disponibles" style="width: 80px;"></a>
+                        <a target="_blank" href="https://www.facebook.com/profile.php?id=100086778966106" class="col-3 mx-auto text-center" style="margin:9px;"><img src="../images/facebook.png" class="img-fluid " alt="disponibles" style="width: 80px;"></a>
+                        <a target="_blank" href="https://www.tiktok.com/@integralfitness360" class="col-3 mx-auto text-center" style="margin:9px;"><img src="../images/tiktok.png" class="img-fluid " alt="disponibles" style="width: 80px;" ></a>
+                    </div>
+
+
                 </div>
                 <div class="col-lg-7 col-md-7 col-sm-8 col-11">
                     <p class="col-12 fount1 mx-auto text-center" style="font-size:45px; font-weight: bold; font-style: oblique; color: white; margin-top: 60px; margin-bottom: 0px;">" Aunque nadie puede volver atrás y hacer un nuevo comienzo, cualquiera puede comenzar a partir de ahora y crear un nuevo final."

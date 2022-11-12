@@ -76,3 +76,32 @@ nav{
     border-top: none;
     border-bottom: none;
 }
+.aLink{
+    margin-left: 30px;
+    border: 1px solid #012626;
+    border-radius: 8px;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    padding-top: 2px;
+    padding-bottom: 3px;
+    background-color: #012626;
+    color: white !important;
+    font-weight: bold;
+    margin-right: 10px;
+    text-shadow: none;
+    margin-bottom: 10px;
+}
+.aLink:hover{
+    margin-left: 30px;
+    border: 1px solid #04BFBF;
+    border-radius: 8px;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    padding-top: 2px;
+    padding-bottom: 3px;
+    background-color: white;
+    color: #04BFBF !important;
+    font-weight: bold;
+    margin-right: 10px;
+    text-shadow: none;
+}
