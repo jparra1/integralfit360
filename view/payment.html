@@ -30,7 +30,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="navbar_360" style="padding: 0px;">
             <!--1 contenedor fluido por boostrap -->
             <div class="container-fluid ">
-                <a class="navbar-brand" href="#" id="imagen_nav"><img src="../images/nav360.png" alt="Integral Solution" style="margin-left: 20px;" width="90px"></a>
+                <a class="navbar-brand" href="index.html" id="imagen_nav"><img src="../images/nav360.png" alt="Integral Solution" style="margin-left: 20px;" width="90px"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-bs-controls="navbarNavDropdown" aria-bs-expanded="false" aria-bs-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -41,13 +41,13 @@
                             <a class="nav-link aNvbar linkNav" href="">Comunidad</a>
                         </li> -->
                         <li class="nav-item">
-                            <a class="nav-link aNvbar linkNav text-center" href="#nosotros_360">Nosotros</a>
+                            <a class="nav-link aNvbar linkNav text-center" href="index.html#nosotros_360">Nosotros</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link aNvbar linkNav text-center" href="#planes_360">Planes</a>
+                            <a class="nav-link aNvbar linkNav text-center" href="index.html#planes_360">Planes</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link aNvbar linkNav text-center" href="#contactanos_360">Contacto</a>
+                            <a class="nav-link aNvbar linkNav text-center" href="index.html#contactanos_360">Contacto</a>
                         </li>
                         <!-- Aqui comienza el trabajo de Samuel Quintero-->
                         <li class="nav-item">
@@ -66,8 +66,86 @@
 
     <div class="container-fluid" style="margin-top: 61px; margin-bottom: 20px;" data-bs-spy="scroll" data-bs-target="#navbar_360" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" tabindex="0">
 
-        
+        <div class="col-11 mx-auto">
+            <h1 style="color: #04BFBF; font-size: 40px;">REGISTRO DE MEDIO DE PAGO</h1>
+            <form>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <label for="itarjeta" style=" margin-bottom: 16px; margin-top: 16px; " class="p3 col-lg-6">NÚMERO DE TARJETA</label>
+                        <input type="number" class="form-control col-lg-4" id="itarjeta" style=" margin-bottom: 16px;" required>
+                        <a class="" href="#" id="imagen_nav"><img src="../images/payment_cards.png" style="width: 225px"></a>
+                    </div>
+                    <div class="col-lg-3">
+                        <label style="margin-bottom: 16px; margin-top: 16px; " class="p3 col-lg-8">FECHA DE EXPIRACIÓN</label>
+                        <input id="ifecha" type="month" class="form-select text-center col" style="margin-bottom: 16px; " required="">
+                    </div>
+                    <div class="col-lg-3">
+                        <label for="icodigoseguridad" style="margin-bottom: 16px; margin-top: 16px; " class="p3 col-lg-10">CÓDIGO DE SEGURIDAD</label>
+                        <input type="number" class="form-control col-lg-4" id="icodigoseguridad" style=" margin-bottom: 16px;" required>
+                    </div>
+                </div>
 
+                <h1 style="color: #04BFBF; font-size: 25px; margin-top: 25px; margin-bottom: 20px">INFORMACIÓN DE FACTURACIÓN</h1>
+
+                <div class="row">
+                    <div class="col-lg-2" style="margin-bottom: 15px">
+                        <label for="inputNombre" style="margin-top: 8px;" class="p3">NOMBRE</label>
+                    </div>
+                    <div class="col" style="margin-bottom: 15px">
+                        <input type="text" class="form-control" id="inputNombre" style="" margin-bottom: 16px;" required>
+                    </div>
+                    <div class="col-lg-2" style="margin-bottom: 15px">
+                        <label for="inputApellidos" style="margin-top: 8px;" class="p3">APELLIDOS</label>
+                    </div>
+                    <div class="col" style="margin-bottom: 15px">
+                        <input type="text" class="form-control" id="inputApellidos" style="" margin-bottom: 16px;" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-2" style="margin-bottom: 15px">
+                        <label for="iciudad" style="margin-top: 8px;" class="p3">CIUDAD</label>
+                    </div>
+                    <div class="col" style="margin-bottom: 15px">
+                        <input type="text" class="form-control" id="iciudad" style="" margin-bottom: 16px;" required>
+                    </div>
+                    <div class="col-lg-2" style="margin-bottom: 15px">
+                        <label for="ipais" style="margin-top: 8px;" class="p3">PAÍS</label>
+                    </div>
+                    <div class="col" style="margin-bottom: 15px">
+                        <input type="text" class="form-control" id="ipais" style="" margin-bottom: 16px;" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-3" style="margin-bottom: 15px">
+                        <label for="idireccion" style=" margin-top: 8px;" class="p3">DIRECCIÓN DE FACTURACIÓN</label>
+                    </div>
+                    <div class="col-lg-9" style="margin-bottom: 15px">
+                        <input type="text" class="form-control" id="idireccion" style="" margin-bottom: 16px;" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-2" style="margin-bottom: 15px">
+                        <label for="ipostal" style="margin-top: 8px;" class="p3">CODIGO POSTAL</label>
+                    </div>
+                    <div class="col" style="margin-bottom: 15px">
+                        <input type="text" class="form-control" id="ipostal" style="" margin-bottom: 16px;" required>
+                    </div>
+                    <div class="col-lg-2" style="margin-bottom: 15px">
+                        <label for="itelefono" style="margin-top: 8px;" class="p3">TELEFONO</label>
+                    </div>
+                    <div class="col" style="margin-bottom: 15px">
+                        <input type="tel" class="form-control" id="itelefono" style="" margin-bottom: 16px;" required>
+                    </div>
+                </div>
+
+                <div>
+                    <button type="submit" class="button3" style="margin-top: 10px; margin-bottom: 20px; width: 250px; height: 40px; float: right;" onclick="mediopago()">Agregar medio de pago</button>
+                </div>
+            </form>
+        </div>
     </div>
 
     <!-- Ventana modal de login -->
@@ -182,12 +260,13 @@
                             <textarea class="form-control" id="textAreaLimitaciones" rows="3" placeholder="Describir dolencias que no le permitan realizar algunos movimientos, o ejercicios que no pueda realizar." required></textarea>
                         </div>
 
+                        <div class="modal-footer">
+                            <button type="submit" class="button3" onclick="registrar()">Registrarse</button>
+                        </div>
 
                     </form>
                 </div>
-                <div class="modal-footer">
-                    <button type="submit" class="button3" onclick="registrar()">Registrarse</button>
-                </div>
+
             </div>
         </div>
     </div>
@@ -299,5 +378,6 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     <script src="../js/homePage.js"></script>
+    <script src="../js/payments.js"></script>
 </body>
 </html>

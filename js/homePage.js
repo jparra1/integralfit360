@@ -89,8 +89,6 @@ function registrar() {
 
                     div_log.innerHTML += `<label class="col-10" style="color: white;"> --> Ingreso Exitoso de - ${email} : estatus: ${dataRecive["estatus"]} - mensaje: ${dataRecive["Mensaje"]} - Nombre: ${dataRecive["data_usuario"]["usuario"]}</label><br>
                           `;
-                    document.getElementById("correoUsuario").value = "";
-                    document.getElementById("password").value = "";
                 } else {
                     Swal.fire({
                         icon: 'error',
@@ -108,13 +106,8 @@ function registrar() {
         });
 
 
-    } else {
-        Swal.fire({
-            icon: 'error',
-            title: 'Opss...',
-            text: 'Por favor llene los campos con sus datos personales',
-            confirmButtonColor: "#012626",
-        });
     }
 
 }
+
+
