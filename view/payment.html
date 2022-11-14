@@ -10,7 +10,7 @@
     <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
     <meta http-equiv="Pragma" content="no-cache">
 
-    <title>Agregar método de pago</title>
+    <title>Integral Fitness 360</title>
     <link rel="shortcut icon" href="../images/360.ico">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
@@ -106,60 +106,87 @@
                     <h5 style="font-size: 21px; color: black;">DATOS PERSONALES</h5>
                     <form>
                         <div class="row">
-                            <div class="col-lg-3">
-                                <label for="inputTipoDocumentoIdentidad" class="p3">TIPO DE DOCUMENTO DE IDENTIDAD</label>
+                            <div class="col-lg-4">
+                                <label for="inputTipoDocumentoIdentidad" style="margin-left: 10px; margin-bottom: 16px; margin-top: 8px; " class="p3">DOCUMENTO DE IDENTIDAD</label>
                             </div>
-                            <div class="col-lg-3">
-                                <select id="inputTipoDocumentoIdentidad" class="form-select text-center" required="">
-                                    <option selected>-Seleccionar-</option>
+                            <div class="col-sm-3">
+                                <select id="inputTipoDocumentoIdentidad" class="form-select text-center" style=" margin-bottom: 16px;" required="">
+                                    <option selected></option>
                                     <option>Cédula de ciudadania</option>
                                     <option>Cédula de extranjería</option>
                                     <option>Pasaporte</option>
                                 </select>
                             </div>
-                            <div class="col-lg-3">
-                                <label for="inputNumeroIdentidad" style="margin-left: 60px; margin-bottom: 10px;" class="p3">NÚMERO DE DOCUMENTO DE IDENTIDAD</label>
-                            </div>
-                            <div class="col-lg-3">
-                                <input type="number" class="form-control" id="inputNumeroIdentidad" required>
+                            <div class="col-sm">
+                                <input type="number" class="form-control" id="inputNumeroIdentidad" style=" margin-bottom: 16px;" required>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-lg-3" style="margin-bottom: 15px">
-                                <label for="inputNombre" style="margin-top: 8px;" class="p3">NOMBRE</label>
+                            <div class="col-lg-2" style="margin-bottom: 15px">
+                                <label for="inputNombre" style="margin-left: 10px; margin-top: 8px;" class="p3">NOMBRE</label>
                             </div>
                             <div class="col" style="margin-bottom: 15px">
-                                <input type="text" class="form-control" id="inputNombre" required>
+                                <input type="text" class="form-control" id="inputNombre" style="" margin-bottom: 16px;" required>
                             </div>
-                            <div class="col-lg-3" style="margin-bottom: 15px">
-                                <label for="inputApellidos" style="margin-left: 60px; margin-top: 8px;" class="p3">APELLIDOS</label>
+                            <div class="col-lg-2" style="margin-bottom: 15px">
+                                <label for="inputApellidos" style="margin-left: 10px; margin-top: 8px;" class="p3">APELLIDOS</label>
                             </div>
                             <div class="col" style="margin-bottom: 15px">
-                                <input type="text" class="form-control" id="inputApellidos" required>
+                                <input type="text" class="form-control" id="inputApellidos" style="" margin-bottom: 16px;" required>
                             </div>
                         </div>
+
                         <div class="row">
-                            <div class="col-lg-3">
-                                <label for="inputUsuario" style="margin-top: 8px;" class="p3">E-MAIL - USUARIO</label>
+                            <div class="col-lg-2" style="margin-bottom: 15px">
+                                <label for="inputUsuario" style="margin-left: 10px; margin-top: 8px;" class="p3">E-MAIL</label>
                             </div>
-                            <div class="col">
-                                <input type="email" class="form-control" id="inputUsuario" placeholder="example@mail.com" required>
+                            <div class="col" style="margin-bottom: 15px">
+                                <input type="email" class="form-control" id="inputUsuario" style="" margin-bottom: 16px;" placeholder="example@mail.com" required>
                             </div>
-                            <div class="col-lg-3">
-                                <label for="inputPassword" style="margin-left: 60px; margin-top: 8px;" class="p3">CONTRASEÑA</label>
+                            <div class="col-lg-2" style="margin-bottom: 15px">
+                                <label for="inputPassword" style="margin-left: 10px; margin-top: 8px;" class="p3">CONTRASEÑA</label>
                             </div>
-                            <div class="col">
-                                <input type="password" class="form-control" id="inputPassword" required>
+                            <div class="col" style="margin-bottom: 15px">
+                                <input type="password" class="form-control" id="inputPassword" style="" margin-bottom: 16px;" required>
                             </div>
                         </div>
+
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <label for="inputAltura" style="margin-left: 10px; margin-bottom: 16px; margin-top: 8px; " class="p3">ALTURA</label>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="number" class="form-control" id="inputAltura" style=" margin-bottom: 16px;" min="0.7" max="2.5" required>
+                            </div>
+                            <div class="col-sm-2">
+                                <label for="inputEdad" style="margin-left: 10px; margin-bottom: 16px; margin-top: 8px; " class="p3">EDAD</label>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="number" class="form-control" id="inputEdad" style=" margin-bottom: 16px;" min="12" max="110" step="1" required>
+                            </div>
+                            <div class="col-sm-2">
+                                <label for="inputGenero" style="margin-left: 10px; margin-bottom: 16px; margin-top: 8px; " class="p3">GENERO</label>
+                            </div>
+                            <div class="col-sm-2">
+                                <select id="inputGenero" class="form-select text-center" style=" margin-bottom: 16px;" required="">
+                                    <option selected></option>
+                                    <option>H</option>
+                                    <option>M</option>
+                                    <option>Otro</option>
+                                </select>
+                            </div>
+                        </div>
+
                         <div style="margin-top: 25px;">
                             <label for="textAreaLimitaciones" style="font-weight: bold; margin-bottom: 15px;">CARACTERISTICAS ESPECIALES A TENER EN CUENTA</label>
                             <textarea class="form-control" id="textAreaLimitaciones" rows="3" placeholder="Describir dolencias que no le permitan realizar algunos movimientos, o ejercicios que no pueda realizar." required></textarea>
                         </div>
+
+
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="button3">Registrarse</button>
+                    <button type="submit" class="button3" onclick="registrar()">Registrarse</button>
                 </div>
             </div>
         </div>
