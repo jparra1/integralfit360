@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+a<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -18,40 +18,73 @@
     <link rel="shortcut icon" href="../images/360.ico">
 </head>
 <body>
+
     <div>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="navbar_360" style="padding: 0px;"> 
-          <!--1 contenedor fluido por boostrap -->
-          <div class="container-fluid ">
-            <a class="navbar-brand" href="#" id="imagen_nav"><img src="../images/nav360.png" alt="Integral Solution" style="margin-left: 20px;" width="90px"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-bs-controls="navbarNavDropdown" aria-bs-expanded="false" aria-bs-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <!--2 Contenedor de direccionamientos | elementos ha agrupar -->
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
-                <ul class="navbar-nav" id="contextNav">
-                    <!-- <li class="nav-item">
-                        <a class="nav-link aNvbar linkNav" href="">Comunidad</a>
-                    </li> -->
-                    <li class="nav-item">
-                        <a class="nav-link aNvbar linkNav text-center" href="#nosotros_360">Nosotros</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link aNvbar linkNav text-center" href="#planes_360">Planes</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link aNvbar linkNav text-center" href="#contactanos_360">Contacto</a>
-                    </li>
-                    <li class="nav-item my-auto">
-                        <a class="nav-link aNvbar linkNav text-center aLink my-auto" href="">Ingreso</a>
-                    </li>
-                </ul>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="navbar_360" style="padding: 0px;">
+            <!--1 contenedor fluido por boostrap -->
+            <div class="container-fluid ">
+                <a class="navbar-brand" href="#" id="imagen_nav"><img src="../images/nav360.png" alt="Integral Solution" style="margin-left: 20px;" width="90px"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-bs-controls="navbarNavDropdown" aria-bs-expanded="false" aria-bs-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Aqui comienza el trabajo de Samuel Quintero-->
+                <!-- Ventana modal de login -->
+                <input type="checkbox" id="btn-login">
+                <div class="container-login">
+                    <div class="content-login">
+                        <div class="x"><label for="btn-login">X</label></div>
+                        <h2>
+                            Inicio de sesión
+                        </h2>
+                        <div class="col-11 mx-auto text-center" style="margin: 40px; padding: 15px 0px; border-top: 1px solid #dbdbdb; border-bottom: 1px solid #dbdbdb;">
+                            <label id="correo" class="col-10">Usuario</label><br>
+                            <input class="col-8 input" type="email" id="correoUsuario" autocomplete="off" placeholder="Correo"><br>
+                            <label class="col-10" id="pass">Contraseña</label><br>
+                            <input class="col-8 input" type="password" id="password" autocomplete="off" placeholder="Contraseña">
+                            <br> <br> <button type="submit" value="Ingresar" onclick="ingresar()" class="col-4 aNvbar linkNav text-center aLink my-auto" style="margin: 7px; padding: 7px;">Ingresar</button>
+                        </div>
+                        <div class="login-registrar">
+                            <label for="btn-login">Registrarse</label>
+                        </div>
+                    </div>
+                </div>
+                <!-- Aqui finaliza el trabajo de Samuel Quintero-->
+
+
+                <!--2 Contenedor de direccionamientos | elementos ha agrupar -->
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+                    <ul class="navbar-nav" id="contextNav">
+                        <!-- <li class="nav-item">
+                            <a class="nav-link aNvbar linkNav" href="">Comunidad</a>
+                        </li> -->
+                        <li class="nav-item">
+                            <a class="nav-link aNvbar linkNav text-center" href="#nosotros_360">Nosotros</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link aNvbar linkNav text-center" href="#planes_360">Planes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link aNvbar linkNav text-center" href="#contactanos_360">Contacto</a>
+                        </li>
+                        <!-- Aqui comienza el trabajo de Samuel Quintero-->
+                        <li class="boton-login aNvbar linkNav text-center aLink my-auto">
+                            <label for="btn-login">
+                                Ingreso
+                            </label>
+                        </li>
+                        <!-- Aqui finaliza el trabajo de Samuel Quintero-->
+                    </ul>
+                </div>
+                <!-- fin2 Contenedor de direccionamientos | elementos ha agrupar -->
             </div>
-            <!-- fin2 Contenedor de direccionamientos | elementos ha agrupar -->
-          </div>
-          <!-- fin1 contenedor fluido por boostrap -->
+            <!-- fin1 contenedor fluido por boostrap -->
         </nav>
     </div>
-    <div class="container-fluid" style="margin-top: 61px; margin-bottom: 20px;" data-bs-spy="scroll" data-bs-target="#navbar_360" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true"  tabindex="0">
+
+
+
+    <div class="container-fluid" style="margin-top: 61px; margin-bottom: 20px;" data-bs-spy="scroll" data-bs-target="#navbar_360" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" tabindex="0">
 
         <div class="row col-12 mx-auto">
             <img src="../images/home_page1.png" class=" col-12 mx-auto" alt="Te ayudamos a lograr tus objetivos">
@@ -73,8 +106,9 @@
         </div>
         <div class="row col-md-12 mx-auto" style="margin-top: 50px;">
             <div class="col-lg-4 col-md-6 col-sm-10 col-11 mx-auto text-center" style="margin-top: 20px; padding: 20px;">
-                
-                <p class="col-10 mx-auto text-center" style="font-size: 20px;margin-bottom: 10px;"> Somos una plataforma que reúne entrenamiento físico personalizado y planes de nutrición que permiten tener una vida saludable teniendo en cuenta tus necesidades.
+
+                <p class="col-10 mx-auto text-center" style="font-size: 20px;margin-bottom: 10px;">
+                    Somos una plataforma que reúne entrenamiento físico personalizado y planes de nutrición que permiten tener una vida saludable teniendo en cuenta tus necesidades.
                 </p>
                 <img src="../images/view_1.png" class="img-fluid " alt="disponibles" style="width: 400px;">
 
@@ -85,7 +119,7 @@
 
             </div>
             <div class="col-lg-4 col-md-6 col-sm-10 col-11 mx-auto text-center" style="margin-top: 20px;padding: 10px;">
-                
+
                 <p class="col-10 mx-auto text-center" style="font-size: 20px;margin-bottom: 40px;"> Si solo deseas mejorar tu forma de comer, adquiere los planes de nutrición que te permitirán controlar aquellos alimentos que te gustan y te pueden hacer mal. </p>
                 <img src="../images/view_3.png" class="img-fluid " alt="disponibles" style="width: 400px;">
 
@@ -93,12 +127,12 @@
             </div>
 
         </div>
-        <div class="row col-10 mx-auto" style="margin-top: 50px;" >
+        <div class="row col-10 mx-auto" style="margin-top: 50px;">
             <div class="col-lg-5 col-md-5 col-sm-8 col-11 mx-auto my-auto">
                 <p class="col-12 fount1" style="font-size:70px; font-weight: bold; font-style: oblique; color: #00a7a7;">DISPONIBLE EN TODO MOMENTO</p>
             </div>
             <div class="col-lg-5 col-md-5 col-sm-8 col-11 mx-auto text-center">
-                <img src="../images/previews.png" class="img-fluid col-12 mx-auto" alt="disponibles" style="width: 450px;" >
+                <img src="../images/previews.png" class="img-fluid col-12 mx-auto" alt="disponibles" style="width: 450px;">
             </div>
         </div>
 
@@ -133,35 +167,35 @@
 
         </div>
         <div class="row col-9 mx-auto" style="margin-top: 50px;">
-            <button  type="submit" class="col-lg-3 col-md-4 col-sm-5 col-8 button1 mx-auto" style="padding: 10px; font-weight: bold; margin-bottom: 30px;" title="Únete a 360">Únete</button>
+            <button type="submit" class="col-lg-3 col-md-4 col-sm-5 col-8 button1 mx-auto" style="padding: 10px; font-weight: bold; margin-bottom: 30px;" title="Únete a 360">Únete</button>
         </div>
         <div class="col-12 row mx-auto" style="background-color: #012626;" style="margin-top: 50px;padding-bottom: 50px;" id="contactanos_360">
             <p class="col-11 fount1 mx-auto" style="font-size:70px; font-weight: bold; font-style: oblique; color: #00a7a7; margin-top: 30px; margin-bottom: 0px;">CONTACTANOS</p>
             <hr style="background-color: white; height: 7px; border-radius: 10px; color: white;" class="col-11 mx-auto opacity-100">
             <div class="col-12 mx-auto row">
-                <div  class="col-lg-5 col-md-5 col-sm-8 col-11">
+                <div class="col-lg-5 col-md-5 col-sm-8 col-11">
                     <p class="col-11 fount1 mx-auto text-center" style="font-size:30px; font-weight: bold; color: white; margin-top: 70px; margin-bottom: 0px;">Siguenos en nuestras redes sociales.</p>
 
                     <div class="col-12 text-center mx-auto" style=" margin-top: 20px;">
-                        
+
                         <a target="_blank" href="https://www.instagram.com/integralfitness360/" class="col-3 mx-auto text-center" style="margin:9px;"><img src="../images/instagram.png" class="img-fluid " alt="disponibles" style="width: 80px;"></a>
                         <a target="_blank" href="https://www.facebook.com/profile.php?id=100086778966106" class="col-3 mx-auto text-center" style="margin:9px;"><img src="../images/facebook.png" class="img-fluid " alt="disponibles" style="width: 80px;"></a>
-                        <a target="_blank" href="https://www.tiktok.com/@integralfitness360" class="col-3 mx-auto text-center" style="margin:9px;"><img src="../images/tiktok.png" class="img-fluid " alt="disponibles" style="width: 80px;" ></a>
+                        <a target="_blank" href="https://www.tiktok.com/@integralfitness360" class="col-3 mx-auto text-center" style="margin:9px;"><img src="../images/tiktok.png" class="img-fluid " alt="disponibles" style="width: 80px;"></a>
                     </div>
 
 
                 </div>
                 <div class="col-lg-7 col-md-7 col-sm-8 col-11">
-                    <p class="col-12 fount1 mx-auto text-center" style="font-size:45px; font-weight: bold; font-style: oblique; color: white; margin-top: 60px; margin-bottom: 0px;">" Aunque nadie puede volver atrás y hacer un nuevo comienzo, cualquiera puede comenzar a partir de ahora y crear un nuevo final."
+                    <p class="col-12 fount1 mx-auto text-center" style="font-size:45px; font-weight: bold; font-style: oblique; color: white; margin-top: 60px; margin-bottom: 0px;">
+                        " Aunque nadie puede volver atrás y hacer un nuevo comienzo, cualquiera puede comenzar a partir de ahora y crear un nuevo final."
                     </p>
-                    <p class="col-11 fount1 mx-auto text-center" style="font-size:40px; font-weight: bold; font-style: oblique; color: #00a7a7;">Carl Bard</p> 
+                    <p class="col-11 fount1 mx-auto text-center" style="font-size:40px; font-weight: bold; font-style: oblique; color: #00a7a7;">Carl Bard</p>
                 </div>
             </div>
-    
+
         </div>
 
     </div>
-
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
