@@ -60,6 +60,23 @@ nav{
     border: 2px solid black;
     color: #04BFBF;
 }
+.button2{
+    border-radius: 12px;
+    background-color: #04BFBF;
+}
+.button3{
+    border-radius: 12px;
+    background-color: #012626;
+    color: white;
+    width: 120px;
+}
+.button3:hover{
+    border-radius: 12px;
+    background-color: white;
+    border: #04BFBF 1px solid;
+    color: #04BFBF;
+    width: 120px;
+}
 .p1{
     color: white;
     font-weight: bold;
@@ -67,6 +84,16 @@ nav{
 .p2{
     color: #012626;
     font-weight: bold;
+}
+.p3{
+    color: #04BFBF;
+}
+.p4{
+    color: black;
+}
+.p5{
+    background-color: #04BFBF;
+    border-radius: 3px;
 }
 .fount1{
     font-family: 'Bebas Neue', cursive;
@@ -104,6 +131,9 @@ nav{
     font-weight: bold;
     margin-right: 10px;
     text-shadow: none;
+}
+h5{
+    color: #04BFBF;
 }
 
 /*Trabajo de Samuel Quintero*/

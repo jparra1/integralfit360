@@ -196,11 +196,82 @@
                 <br> <br> <button type="submit" value="Ingresar" onclick="ingresar()" class="col-4 aNvbar linkNav text-center aLink my-auto" style="margin: 7px; padding: 7px;">Ingresar</button>
             </div>
             <div class="login-registrar">
-                <label for="btn-login">Registrarse</label>
+                <label for="btn-login" data-bs-toggle="modal" data-bs-target="#planes360">Registrarse</label>
             </div>
         </div>
     </div>
     <!-- Aqui finaliza el trabajo de Samuel Quintero-->
+
+    <!--Ventana modal de Registro -->
+    <div class="modal fade" id="planes360" tabindex="-1" aria-labelledby="planes360Label" aria-hidden="true" data-bs-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="planes360Label" style="font-size: 25px; font-weight: bold; margin-left: 9px;">REGISTRO</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <h5 style="font-size: 21px; color: black;">DATOS PERSONALES</h5>
+                  <form>
+                    <div class="row">
+                      <div class="col-lg-3">
+                        <label for="inputTipoDocumentoIdentidad" class="p3">TIPO DE DOCUMENTO DE IDENTIDAD</label>
+                      </div>
+                      <div class="col-lg-3">
+                        <select id="inputTipoDocumentoIdentidad" class="form-select text-center" required="">
+                          <option selected>-Seleccionar-</option>
+                          <option>Cédula de ciudadania</option>
+                          <option>Cédula de extranjería</option>
+                          <option>Pasaporte</option>
+                        </select>
+                      </div>
+                      <div class="col-lg-3">
+                        <label for="inputNumeroIdentidad" style="margin-left: 60px; margin-bottom: 10px;" class="p3">NÚMERO DE DOCUMENTO DE IDENTIDAD</label>
+                      </div>
+                      <div class="col-lg-3">
+                        <input type="number" class="form-control" id="inputNumeroIdentidad" required>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-lg-3" style="margin-bottom: 15px">
+                        <label for="inputNombre" style="margin-top: 8px;" class="p3">NOMBRE</label>
+                      </div>
+                      <div class="col" style="margin-bottom: 15px">
+                        <input type="text" class="form-control" id="inputNombre" required>
+                      </div>
+                      <div class="col-lg-3" style="margin-bottom: 15px">
+                        <label for="inputApellidos" style="margin-left: 60px; margin-top: 8px;" class="p3">APELLIDOS</label>
+                      </div>
+                      <div class="col" style="margin-bottom: 15px">
+                        <input type="text" class="form-control" id="inputApellidos" required>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-lg-3">
+                        <label for="inputUsuario" style="margin-top: 8px;" class="p3">E-MAIL - USUARIO</label>
+                      </div>
+                      <div class="col">
+                        <input type="email" class="form-control" id="inputUsuario" placeholder="example@mail.com" required>
+                      </div>
+                      <div class="col-lg-3">
+                        <label for="inputPassword" style="margin-left: 60px; margin-top: 8px;" class="p3">CONTRASEÑA</label>
+                      </div>
+                      <div class="col">
+                        <input type="password" class="form-control" id="inputPassword" required>
+                      </div>
+                    </div>
+                    <div style="margin-top: 25px;">
+                      <label for="textAreaLimitaciones" style="font-weight: bold; margin-bottom: 15px;">CARACTERISTICAS ESPECIALES A TENER EN CUENTA</label>
+                      <textarea class="form-control" id="textAreaLimitaciones" rows="3" placeholder="Describir dolencias que no le permitan realizar algunos movimientos, o ejercicios que no pueda realizar." required></textarea>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="button3">Registrarse</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
