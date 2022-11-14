@@ -52,6 +52,7 @@ function ingresar() {
             icon: 'error',
             title: 'Opss...',
             text: 'Ingrese las credenciales',
+            confirmButtonColor: "#012626",
           });
     }
 

@@ -50,10 +50,8 @@
                             <a class="nav-link aNvbar linkNav text-center" href="#contactanos_360">Contacto</a>
                         </li>
                         <!-- Aqui comienza el trabajo de Samuel Quintero-->
-                        <li class="boton-login aNvbar linkNav text-center aLink my-auto">
-                            <label for="btn-login">
-                                Ingreso
-                            </label>
+                        <li class="nav-item">
+                            <a class="nav-link aNvbar aLink linkNav text-center" href="#" data-bs-toggle="modal" data-bs-target="#login">Ingresar</a>
                         </li>
                         <!-- Aqui finaliza el trabajo de Samuel Quintero-->
                     </ul>
@@ -179,28 +177,29 @@
 
     </div>
 
-    <!-- Aqui comienza el trabajo de Samuel Quintero-->
     <!-- Ventana modal de login -->
-    <input type="checkbox" id="btn-login">
-    <div class="container-login">
-        <div class="content-login">
-            <div class="x"><label for="btn-login">X</label></div>
-            <h2>
-                Inicio de sesión
-            </h2>
-            <div class="col-11 mx-auto text-center" style="margin: 40px; padding: 15px 0px; border-top: 1px solid #dbdbdb; border-bottom: 1px solid #dbdbdb;">
-                <label id="correo" class="col-10">Usuario</label><br>
-                <input class="col-8 input" type="email" id="correoUsuario" autocomplete="off" placeholder="Email"><br>
-                <label class="col-10" id="pass" style="margin-top:15px;">Contraseña</label><br>
-                <input class="col-8 input" type="password" id="password" autocomplete="off" placeholder="Password">
-                <br> <br> <button type="submit" value="Ingresar" onclick="ingresar()" class="col-4 aNvbar linkNav text-center aLink my-auto" style="margin: 7px; padding: 7px;">Ingresar</button>
-            </div>
-            <div class="login-registrar">
-                <label for="btn-login" data-bs-toggle="modal" data-bs-target="#registrarse">Registrarse</label>
+    <div class="modal fade" id="login" tabindex="-1" aria-labelledby="loginLabel" aria-hidden="true" data-bs-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginLabel" style="font-size: 25px; font-weight: bold; margin-left: 9px;">INICIAR SESIÓN</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="col-11 mx-auto text-center">
+                        <label id="correo" class="col-10">Usuario</label><br>
+                        <input class="col-8 input" type="email" id="correoUsuario" autocomplete="off" placeholder="Email"><br>
+                        <label class="col-10" id="pass" style="margin-top:15px;">Contraseña</label><br>
+                        <input class="col-8 input" type="password" id="password" autocomplete="off" placeholder="Password">
+                        <br> <br> <button type="submit" value="Ingresar" onclick="ingresar()" class="col-4 aNvbar linkNav text-center aLink my-auto" style="margin: 7px; padding: 7px;">Ingresar</button>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="button3" data-bs-toggle="modal" data-bs-target="#registrarse">Registrarse</button>
+                </div>
             </div>
         </div>
     </div>
-    <!-- Aqui finaliza el trabajo de Samuel Quintero-->
 
     <!--Ventana modal de Registro -->
     <div class="modal fade" id="registrarse" tabindex="-1" aria-labelledby="registrarseLabel" aria-hidden="true" data-bs-backdrop="static">
@@ -211,60 +210,60 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <h5 style="font-size: 21px; color: black;">DATOS PERSONALES</h5>
-                  <form>
-                    <div class="row">
-                      <div class="col-lg-3">
-                        <label for="inputTipoDocumentoIdentidad" class="p3">TIPO DE DOCUMENTO DE IDENTIDAD</label>
-                      </div>
-                      <div class="col-lg-3">
-                        <select id="inputTipoDocumentoIdentidad" class="form-select text-center" required="">
-                          <option selected>-Seleccionar-</option>
-                          <option>Cédula de ciudadania</option>
-                          <option>Cédula de extranjería</option>
-                          <option>Pasaporte</option>
-                        </select>
-                      </div>
-                      <div class="col-lg-3">
-                        <label for="inputNumeroIdentidad" style="margin-left: 60px; margin-bottom: 10px;" class="p3">NÚMERO DE DOCUMENTO DE IDENTIDAD</label>
-                      </div>
-                      <div class="col-lg-3">
-                        <input type="number" class="form-control" id="inputNumeroIdentidad" required>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-lg-3" style="margin-bottom: 15px">
-                        <label for="inputNombre" style="margin-top: 8px;" class="p3">NOMBRE</label>
-                      </div>
-                      <div class="col" style="margin-bottom: 15px">
-                        <input type="text" class="form-control" id="inputNombre" required>
-                      </div>
-                      <div class="col-lg-3" style="margin-bottom: 15px">
-                        <label for="inputApellidos" style="margin-left: 60px; margin-top: 8px;" class="p3">APELLIDOS</label>
-                      </div>
-                      <div class="col" style="margin-bottom: 15px">
-                        <input type="text" class="form-control" id="inputApellidos" required>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-lg-3">
-                        <label for="inputUsuario" style="margin-top: 8px;" class="p3">E-MAIL - USUARIO</label>
-                      </div>
-                      <div class="col">
-                        <input type="email" class="form-control" id="inputUsuario" placeholder="example@mail.com" required>
-                      </div>
-                      <div class="col-lg-3">
-                        <label for="inputPassword" style="margin-left: 60px; margin-top: 8px;" class="p3">CONTRASEÑA</label>
-                      </div>
-                      <div class="col">
-                        <input type="password" class="form-control" id="inputPassword" required>
-                      </div>
-                    </div>
-                    <div style="margin-top: 25px;">
-                      <label for="textAreaLimitaciones" style="font-weight: bold; margin-bottom: 15px;">CARACTERISTICAS ESPECIALES A TENER EN CUENTA</label>
-                      <textarea class="form-control" id="textAreaLimitaciones" rows="3" placeholder="Describir dolencias que no le permitan realizar algunos movimientos, o ejercicios que no pueda realizar." required></textarea>
-                    </div>
-                  </form>
+                    <h5 style="font-size: 21px; color: black;">DATOS PERSONALES</h5>
+                    <form>
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <label for="inputTipoDocumentoIdentidad" class="p3">TIPO DE DOCUMENTO DE IDENTIDAD</label>
+                            </div>
+                            <div class="col-lg-3">
+                                <select id="inputTipoDocumentoIdentidad" class="form-select text-center" required="">
+                                    <option selected>-Seleccionar-</option>
+                                    <option>Cédula de ciudadania</option>
+                                    <option>Cédula de extranjería</option>
+                                    <option>Pasaporte</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-3">
+                                <label for="inputNumeroIdentidad" style="margin-left: 60px; margin-bottom: 10px;" class="p3">NÚMERO DE DOCUMENTO DE IDENTIDAD</label>
+                            </div>
+                            <div class="col-lg-3">
+                                <input type="number" class="form-control" id="inputNumeroIdentidad" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3" style="margin-bottom: 15px">
+                                <label for="inputNombre" style="margin-top: 8px;" class="p3">NOMBRE</label>
+                            </div>
+                            <div class="col" style="margin-bottom: 15px">
+                                <input type="text" class="form-control" id="inputNombre" required>
+                            </div>
+                            <div class="col-lg-3" style="margin-bottom: 15px">
+                                <label for="inputApellidos" style="margin-left: 60px; margin-top: 8px;" class="p3">APELLIDOS</label>
+                            </div>
+                            <div class="col" style="margin-bottom: 15px">
+                                <input type="text" class="form-control" id="inputApellidos" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <label for="inputUsuario" style="margin-top: 8px;" class="p3">E-MAIL - USUARIO</label>
+                            </div>
+                            <div class="col">
+                                <input type="email" class="form-control" id="inputUsuario" placeholder="example@mail.com" required>
+                            </div>
+                            <div class="col-lg-3">
+                                <label for="inputPassword" style="margin-left: 60px; margin-top: 8px;" class="p3">CONTRASEÑA</label>
+                            </div>
+                            <div class="col">
+                                <input type="password" class="form-control" id="inputPassword" required>
+                            </div>
+                        </div>
+                        <div style="margin-top: 25px;">
+                            <label for="textAreaLimitaciones" style="font-weight: bold; margin-bottom: 15px;">CARACTERISTICAS ESPECIALES A TENER EN CUENTA</label>
+                            <textarea class="form-control" id="textAreaLimitaciones" rows="3" placeholder="Describir dolencias que no le permitan realizar algunos movimientos, o ejercicios que no pueda realizar." required></textarea>
+                        </div>
+                    </form>
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="button3">Registrarse</button>
@@ -282,95 +281,95 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <div class="container">
-                    <div class="row">
-                      <div class="col">
-                        <p class="p3" style="font-size: 21px;">PLAN</p>
-                      </div>
-                      <div class="col text-center">
-                        <p class="p3" style="font-size: 21px;">DURACIÓN</p>
-                      </div>
-                      <div class="col"></div>
-                    </div>
-                    <div class="row">
-                      <div class="col">
-                        <p class="p4" style="font-size: 15px;">PLAN SPORT</p>
-                      </div>
-                      <div class="col">
-                        <div class="row text-center">
-                          <div class="col-lg-3" style="padding: 5px;">
-                            <!--<p class="p5" style="font-weight: bold;">1 mes</p>-->
-                            <button class="btn btn-info button2" style="font-weight: bold; font-size: 10px;">1 mes</button>
-                          </div>
-                          <div class="col" style="padding: 5px;">
-                            <!--<p class="p5" style="font-weight: bold;">6 meses</p>-->
-                            <button class="btn btn-info button2" style="font-weight: bold; font-size: 9px;">6 meses</button>
-                          </div>
-                          <div class="col-lg-3" style="padding: 5px;">
-                            <!--<p class="p5" style="font-weight: bold;">1 año</p>-->
-                            <button class="btn btn-info button2" style="font-weight: bold; font-size: 10px;">1 año</button>
-                          </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <p class="p3" style="font-size: 21px;">PLAN</p>
+                            </div>
+                            <div class="col text-center">
+                                <p class="p3" style="font-size: 21px;">DURACIÓN</p>
+                            </div>
+                            <div class="col"></div>
                         </div>
-                      </div>
-                      <div class="col text-center">
-                        <button class="button3 text-center" style="width: 150px; font-size: 15px;">Por $</button>
-                      </div>
-                    </div>
-
-                    <div class="modal-footer"></div>
-
-                    <div class="row">
-                      <div class="col">
-                        <p class="p4" style="font-size: 15px;">PLAN HEALTH</p>
-                      </div>
-                      <div class="col">
-                        <div class="row text-center">
-                          <div class="col-lg-3" style="padding: 5px;">
-                            <!--<p class="p5" style="font-weight: bold;">1 mes</p>-->
-                            <button class="btn btn-info button2" style="font-weight: bold; font-size: 10px;">1 mes</button>
-                          </div>
-                          <div class="col" style="padding: 5px;">
-                            <!--<p class="p5" style="font-weight: bold;">6 meses</p>-->
-                            <button class="btn btn-info button2" style="font-weight: bold; font-size: 9px;">6 meses</button>
-                          </div>
-                          <div class="col-lg-3" style="padding: 5px;">
-                            <!--<p class="p5" style="font-weight: bold;">1 año</p>-->
-                            <button class="btn btn-info button2" style="font-weight: bold; font-size: 10px;">1 año</button>
-                          </div>
+                        <div class="row">
+                            <div class="col">
+                                <p class="p4" style="font-size: 15px;">PLAN SPORT</p>
+                            </div>
+                            <div class="col">
+                                <div class="row text-center">
+                                    <div class="col-lg-3" style="padding: 5px;">
+                                        <!--<p class="p5" style="font-weight: bold;">1 mes</p>-->
+                                        <button class="btn btn-info button2" style="font-weight: bold; font-size: 10px;">1 mes</button>
+                                    </div>
+                                    <div class="col" style="padding: 5px;">
+                                        <!--<p class="p5" style="font-weight: bold;">6 meses</p>-->
+                                        <button class="btn btn-info button2" style="font-weight: bold; font-size: 9px;">6 meses</button>
+                                    </div>
+                                    <div class="col-lg-3" style="padding: 5px;">
+                                        <!--<p class="p5" style="font-weight: bold;">1 año</p>-->
+                                        <button class="btn btn-info button2" style="font-weight: bold; font-size: 10px;">1 año</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col text-center">
+                                <button class="button3 text-center" style="width: 150px; font-size: 15px;">Por $</button>
+                            </div>
                         </div>
-                      </div>
-                      <div class="col text-center">
-                        <button class="button3 text-center" style="width: 150px; font-size: 15px;">Por $</button>
-                      </div>
-                    </div>
 
-                    <div class="modal-footer"></div>
+                        <div class="modal-footer"></div>
 
-                    <div class="row">
-                      <div class="col">
-                        <p class="p4" style="font-size: 15px;">PLAN COMPLETE</p>
-                      </div>
-                      <div class="col">
-                        <div class="row text-center">
-                          <div class="col-lg-3" style="padding: 5px;">
-                            <!--<p class="p5" style="font-weight: bold;">1 mes</p>-->
-                            <button class="btn btn-info button2" style="font-weight: bold; font-size: 10px;">1 mes</button>
-                          </div>
-                          <div class="col" style="padding: 5px;">
-                            <!--<p class="p5" style="font-weight: bold;">6 meses</p>-->
-                            <button class="btn btn-info button2" style="font-weight: bold; font-size: 9px;">6 meses</button>
-                          </div>
-                          <div class="col-lg-3" style="padding: 5px;">
-                            <!--<p class="p5" style="font-weight: bold;">1 año</p>-->
-                            <button class="btn btn-info button2" style="font-weight: bold; font-size: 10px;">1 año</button>
-                          </div>
+                        <div class="row">
+                            <div class="col">
+                                <p class="p4" style="font-size: 15px;">PLAN HEALTH</p>
+                            </div>
+                            <div class="col">
+                                <div class="row text-center">
+                                    <div class="col-lg-3" style="padding: 5px;">
+                                        <!--<p class="p5" style="font-weight: bold;">1 mes</p>-->
+                                        <button class="btn btn-info button2" style="font-weight: bold; font-size: 10px;">1 mes</button>
+                                    </div>
+                                    <div class="col" style="padding: 5px;">
+                                        <!--<p class="p5" style="font-weight: bold;">6 meses</p>-->
+                                        <button class="btn btn-info button2" style="font-weight: bold; font-size: 9px;">6 meses</button>
+                                    </div>
+                                    <div class="col-lg-3" style="padding: 5px;">
+                                        <!--<p class="p5" style="font-weight: bold;">1 año</p>-->
+                                        <button class="btn btn-info button2" style="font-weight: bold; font-size: 10px;">1 año</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col text-center">
+                                <button class="button3 text-center" style="width: 150px; font-size: 15px;">Por $</button>
+                            </div>
                         </div>
-                      </div>
-                      <div class="col text-center">
-                        <button class="button3 text-center" style="width: 150px; font-size: 15px;">Por $</button>
-                      </div>
+
+                        <div class="modal-footer"></div>
+
+                        <div class="row">
+                            <div class="col">
+                                <p class="p4" style="font-size: 15px;">PLAN COMPLETE</p>
+                            </div>
+                            <div class="col">
+                                <div class="row text-center">
+                                    <div class="col-lg-3" style="padding: 5px;">
+                                        <!--<p class="p5" style="font-weight: bold;">1 mes</p>-->
+                                        <button class="btn btn-info button2" style="font-weight: bold; font-size: 10px;">1 mes</button>
+                                    </div>
+                                    <div class="col" style="padding: 5px;">
+                                        <!--<p class="p5" style="font-weight: bold;">6 meses</p>-->
+                                        <button class="btn btn-info button2" style="font-weight: bold; font-size: 9px;">6 meses</button>
+                                    </div>
+                                    <div class="col-lg-3" style="padding: 5px;">
+                                        <!--<p class="p5" style="font-weight: bold;">1 año</p>-->
+                                        <button class="btn btn-info button2" style="font-weight: bold; font-size: 10px;">1 año</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col text-center">
+                                <button class="button3 text-center" style="width: 150px; font-size: 15px;">Por $</button>
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
                 <div class="modal-footer"></div>
             </div>
