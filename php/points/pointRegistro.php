@@ -11,8 +11,8 @@ include '../ApiRest.php';
                 $resultado=methodGET($query)->fetch(PDO::FETCH_ASSOC);
                 if (!$resultado) {
                     $hoy = getdate();
-                    $fecha=$hoy["year"]."-".$hoy["mon"]."-".strval(intval($hoy["mday"])-1);
-                    
+                    $fecha=$hoy["year"]."-".$hoy["mon"]."-".$hoy["mday"];
+
                     $query=" INSERT INTO  info_usuario (
                     nombre_usuario,
                     apellido_usuario,
