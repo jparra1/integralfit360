@@ -5,17 +5,22 @@ include '../ApiRest.php';
     header("Access-control-Allow-Origin: *");
 
         if($_SERVER['REQUEST_METHOD']=='POST'){
-            if (isset($_POST["usuario"])) {
+            if (isset($_POST["email_usuario"])) {
                 header("HTTP/1.1 200 OK");
-                $query="SELECT * FROM usuarios WHERE usuario='".$_POST['usuario']."' AND contraseña ='".$_POST['contraseña']."'";
+                $query="SELECT * FROM info_usuario WHERE email_usuario='".$_POST['email_usuario']."' AND password_usuario ='".$_POST['password_usuario']."'";
                 $resultado=methodGET($query)->fetch(PDO::FETCH_ASSOC);
                 if ($resultado) {
-                    echo json_encode(array("usuario"=>"Existente","estatus"=>"Activo","Mensaje"=>"Bienvenido a 360","data_usuario"=>$resultado));
+                    session_start();
+                    $_SESSION['estado']='activo';
+                    $_SESSION['info']=$resultado;
+                    echo json_encode(array("usuario"=>"Existente","estatus"=>"Activo","data_usuario"=>$resultado));
                 }else{
-                    echo json_encode(array("usuario"=>"No Existente","estatus"=>"Null","Mensaje"=>"Acceso Denegado"));
+                    echo json_encode(array("usuario"=>"No Existente","estatus"=>"Null"));
                 }
                 exit();
             }
         }
+            
+        
     header("HTTP/1.1 400 Bad Request");
 ?>
