@@ -10,6 +10,9 @@ include '../ApiRest.php';
                 $query="SELECT * FROM info_usuario WHERE email_usuario='".$_POST['email_usuario']."'";
                 $resultado=methodGET($query)->fetch(PDO::FETCH_ASSOC);
                 if (!$resultado) {
+                    $hoy = getdate();
+                    $fecha=$hoy["year"]."-".$hoy["mon"]."-".strval(intval($hoy["mday"])-1);
+                    
                     $query=" INSERT INTO  info_usuario (
                     nombre_usuario,
                     apellido_usuario,
@@ -19,7 +22,8 @@ include '../ApiRest.php';
                     genero_usuario,
                     peso_usuario,
                     estatura_usuario,
-                    observaciones_usuario) 
+                    observaciones_usuario,
+                    fecha_inscripcion) 
                     VALUES (
                     '".$_POST["nombre_usuario"]."',
                     '".$_POST["apellido_usuario"]."',
@@ -29,8 +33,9 @@ include '../ApiRest.php';
                     '".$_POST["genero_usuario"]."',
                     '".$_POST["peso_usuario"]."',
                     '".$_POST["estatura_usuario"]."',
-                    '".$_POST["observaciones_usuario"]."')";
-                    $id="SELECT MAX(id_usuario ) as id_usuario FROM info_usuario";
+                    '".$_POST["observaciones_usuario"]."',
+                    '".$fecha."')";
+                    $id="SELECT MAX(id_usuario) as id_usuario FROM info_usuario";
                     $resultado=methodPOST($query, $id)->fetch(PDO::FETCH_ASSOC);
                     echo json_encode(array("usuario"=>"Registrado","info"=>$resultado));
                 }else{

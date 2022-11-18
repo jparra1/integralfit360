@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-11-2022 a las 03:55:21
+-- Tiempo de generación: 18-11-2022 a las 04:06:54
 -- Versión del servidor: 10.4.22-MariaDB
 -- Versión de PHP: 8.0.13
 
@@ -35,7 +35,7 @@ CREATE TABLE `asignaciones_a_usuarios` (
   `contenido1_asignacion` text NOT NULL,
   `contenido2_asignacion` text NOT NULL,
   `comentarios_asignacion` text NOT NULL,
-  `fecha_asignacion` date NOT NULL DEFAULT current_timestamp()
+  `fecha_asignacion` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -55,8 +55,8 @@ CREATE TABLE `info_usuario` (
   `peso_usuario` text NOT NULL,
   `estatura_usuario` text NOT NULL,
   `observaciones_usuario` text NOT NULL,
-  `plan_adquirido` text NOT NULL DEFAULT 'ninguno',
-  `fecha_inscripcion` date NOT NULL DEFAULT current_timestamp()
+  `plan_adquirido` text NOT NULL,
+  `fecha_inscripcion` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -77,7 +77,7 @@ CREATE TABLE `pagos` (
   `id_usuario` int(11) NOT NULL,
   `tiempo_comprado` text NOT NULL,
   `tipo_plan` text DEFAULT NULL,
-  `fecha_pago` date NOT NULL DEFAULT current_timestamp()
+  `fecha_pago` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -136,7 +136,7 @@ CREATE TABLE `usuarios_interno` (
 --
 
 INSERT INTO `usuarios_interno` (`id_usuario`, `usuario`, `contraseña`, `nombre`, `tipo_usuario`) VALUES
-(7, 'prueba', 'prueba', 'PEREZ JUAN', '');
+(7, 'prueba', 'prueba', 'PEREZ JUAN', 'SPORT');
 
 --
 -- Índices para tablas volcadas
