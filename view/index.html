@@ -147,7 +147,7 @@
 
         </div>
         <div class="row col-9 mx-auto" style="margin-top: 50px;">
-            <button type="submit" class="col-lg-3 col-md-4 col-sm-5 col-8 button1 mx-auto" style="padding: 10px; font-weight: bold; margin-bottom: 30px;" title="Únete a 360" data-bs-toggle="modal" data-bs-target="#planes360">Únete</button>
+            <button type="submit" class="col-lg-3 col-md-4 col-sm-5 col-8 button1 mx-auto" style="padding: 10px; font-weight: bold; margin-bottom: 30px;" onclick="limpiar()" title="Únete a 360" data-bs-toggle="modal" data-bs-target="#planes360">Únete</button>
         </div>
         <div class="col-12 row mx-auto" style="background-color: #012626; margin-top: 50px;padding-bottom: 50px;" id="contactanos_360">
             <p class="col-11 fount1 mx-auto" style="font-size:70px; font-weight: bold; font-style: oblique; color: #00a7a7; margin-top: 30px; margin-bottom: 0px;">CONTACTANOS</p>
@@ -309,95 +309,112 @@
                 <div class="modal-body">
                     <div class="container">
                         <div class="row">
-                            <div class="col">
+                            <div class="col-lg-3 text-center">
                                 <p class="p3" style="font-size: 21px;">PLAN</p>
                             </div>
-                            <div class="col text-center">
+                            <div class="col-lg-6 text-center">
                                 <p class="p3" style="font-size: 21px;">DURACIÓN</p>
+                            </div>
+                            <div class="col-lg-3 text-center">
+                                <p class="p3" style="font-size: 21px;">COSTO</p>
                             </div>
                             <div class="col"></div>
                         </div>
+
+                        <hr>
+
                         <div class="row">
-                            <div class="col">
+                            <div class="col-lg-3 text-center">
                                 <p class="p4" style="font-size: 15px;">PLAN SPORT</p>
                             </div>
-                            <div class="col">
+                            <div class="col-lg-6">
                                 <div class="row text-center">
-                                    <div class="col-lg-3" style="padding: 5px;">
+                                    <div class="col-lg-4" style="margin-bottom: 10px">
                                         <!--<p class="p5" style="font-weight: bold;">1 mes</p>-->
-                                        <button class="btn btn-info button2" style="font-weight: bold; font-size: 10px;">1 mes</button>
+                                        <button id="bs1" class="btn btn-info button2" style="font-weight: bold; font-size: 10px; width: 70px" onclick="selectS(this, '$10.000', '1 mes')">1 mes</button>
                                     </div>
-                                    <div class="col" style="padding: 5px;">
+                                    <div class="col-lg-4" style="margin-bottom: 10px">
                                         <!--<p class="p5" style="font-weight: bold;">6 meses</p>-->
-                                        <button class="btn btn-info button2" style="font-weight: bold; font-size: 9px;">6 meses</button>
+                                        <button id="bs2" class="btn btn-info button2" style="font-weight: bold; font-size: 10px; width: 70px" onclick=" selectS(this, '$50.000', '6 meses')">6 meses</button>
                                     </div>
-                                    <div class="col-lg-3" style="padding: 5px;">
+                                    <div class="col-lg-4" style="margin-bottom: 10px">
                                         <!--<p class="p5" style="font-weight: bold;">1 año</p>-->
-                                        <button class="btn btn-info button2" style="font-weight: bold; font-size: 10px;">1 año</button>
+                                        <button id="bs3" class="btn btn-info button2" style="font-weight: bold; font-size: 10px; width: 70px" onclick=" selectS(this, '$100.000', '1 año')">1 año</button>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col text-center">
-                                <button class="button3 text-center" style="width: 150px; font-size: 15px;">Por $</button>
+                            <div class="text-center col-lg-3">
+                                <label id="pSport"></label>
                             </div>
                         </div>
 
-                        <div class="modal-footer"></div>
+                        <hr>
 
                         <div class="row">
-                            <div class="col">
+                            <div class="col-lg-3 text-center">
                                 <p class="p4" style="font-size: 15px;">PLAN HEALTH</p>
                             </div>
-                            <div class="col">
+                            <div class="col-lg-6">
                                 <div class="row text-center">
-                                    <div class="col-lg-3" style="padding: 5px;">
+                                    <div class="col-lg-4" style="margin-bottom: 10px">
                                         <!--<p class="p5" style="font-weight: bold;">1 mes</p>-->
-                                        <button class="btn btn-info button2" style="font-weight: bold; font-size: 10px;">1 mes</button>
+                                        <button id="bh1" class="btn btn-info button2" style="font-weight: bold; font-size: 10px; width: 70px" onclick="selectH(this, '$10.000', '1 mes')">1 mes</button>
                                     </div>
-                                    <div class="col" style="padding: 5px;">
+                                    <div class="col-lg-4" style="margin-bottom: 10px">
                                         <!--<p class="p5" style="font-weight: bold;">6 meses</p>-->
-                                        <button class="btn btn-info button2" style="font-weight: bold; font-size: 9px;">6 meses</button>
+                                        <button id="bh2" class="btn btn-info button2" style="font-weight: bold; font-size: 10px; width: 70px" onclick="selectH(this, '$50.000', '6 meses')">6 meses</button>
                                     </div>
-                                    <div class="col-lg-3" style="padding: 5px;">
+                                    <div class="col-lg-4" style="margin-bottom: 10px">
                                         <!--<p class="p5" style="font-weight: bold;">1 año</p>-->
-                                        <button class="btn btn-info button2" style="font-weight: bold; font-size: 10px;">1 año</button>
+                                        <button id="bh3" class="btn btn-info button2" style="font-weight: bold; font-size: 10px; width: 70px" onclick="selectH(this, '$100.000', '1 año')">1 año</button>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col text-center">
-                                <button class="button3 text-center" style="width: 150px; font-size: 15px;">Por $</button>
+                            <div class="col text-center col-lg-3">
+                                <label id="pHealth"></label>
                             </div>
                         </div>
 
-                        <div class="modal-footer"></div>
+                        <hr>
 
                         <div class="row">
-                            <div class="col">
+                            <div class="col-lg-3 text-center">
                                 <p class="p4" style="font-size: 15px;">PLAN COMPLETE</p>
                             </div>
-                            <div class="col">
+                            <div class="col-lg-6">
                                 <div class="row text-center">
-                                    <div class="col-lg-3" style="padding: 5px;">
+                                    <div class="col-lg-4" style="margin-bottom: 10px">
                                         <!--<p class="p5" style="font-weight: bold;">1 mes</p>-->
-                                        <button class="btn btn-info button2" style="font-weight: bold; font-size: 10px;">1 mes</button>
+                                        <button id="bc1" class="btn btn-info button2" style="font-weight: bold; font-size: 10px; width: 70px;" onclick="selectC(this, '$15.000', '1 mes')">1 mes</button>
                                     </div>
-                                    <div class="col" style="padding: 5px;">
+                                    <div class="col-lg-4" style="margin-bottom: 10px">
                                         <!--<p class="p5" style="font-weight: bold;">6 meses</p>-->
-                                        <button class="btn btn-info button2" style="font-weight: bold; font-size: 9px;">6 meses</button>
+                                        <button id="bc2" class="btn btn-info button2" style="font-weight: bold; font-size: 10px; width: 70px;" onclick="selectC(this, '$75.000', '6 meses')">6 meses</button>
                                     </div>
-                                    <div class="col-lg-3" style="padding: 5px;">
+                                    <div class="col-lg-4" style="margin-bottom: 10px">
                                         <!--<p class="p5" style="font-weight: bold;">1 año</p>-->
-                                        <button class="btn btn-info button2" style="font-weight: bold; font-size: 10px;">1 año</button>
+                                        <button id="bc3" class="btn btn-info button2" style="font-weight: bold; font-size: 10px; width: 70px;" onclick="selectC(this, '$120.000', '1 año')">1 año</button>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col text-center">
-                                <button class="button3 text-center" style="width: 150px; font-size: 15px;">Por $</button>
+                            <div class="col text-center col-lg-3">
+                                <label id="pComplete"></label>
                             </div>
+                        </div>
+
+                        <hr>
+
+                        <h5 class="text-center">Plan Seleccionado</h5>
+                        <div class="row">
+                            <label class="col-lg-4 text-center" id="pEl"></label>
+                            <label class="col-lg-4 text-center" id="pCo"></label>
+                            <label class="col-lg-4 text-center" id="pDu"></label>
+                        </div>
+                        <div class="text-center">
+                            <button type="button" class="button3" style="margin-top:20px; margin-bottom:10px" onclick="changeR()" data-bs-toggle="modal" data-bs-target="#planes360">Confirmar</button>
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer"></div>
             </div>
         </div>
     </div>
@@ -405,5 +422,6 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     <script src="../js/homePage.js"></script>
+    <script src="../js/payments.js"></script>
 </body>
 </html>
