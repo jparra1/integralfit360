@@ -107,7 +107,8 @@ function registrar() {
 
 
     }
-
 }
 
-
+function enviar() {
+    window.location.replace("payment.html?E=" + document.getElementById("pEl").textContent + "&D=" + document.getElementById("pDu").textContent + "&C=" + document.getElementById("pCo").textContent);
+}

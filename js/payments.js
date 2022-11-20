@@ -1,4 +1,11 @@
 
+$(document).ready(function () {
+    const urlI = new URLSearchParams(window.location.search);
+    document.getElementById("planElegido").textContent = urlI.get('E');
+    document.getElementById("planDuracion").textContent = urlI.get('D');
+    document.getElementById("planCosto").textContent = urlI.get('C');
+})
+
 function mediopago() {
     var pEle = document.getElementById("pEl").textContent;
     var pDur = document.getElementById("pDu").textContent;
@@ -136,5 +143,4 @@ function limpiar() {
     document.getElementById("bc2").style = "font-weight: bold; font-size: 10px; width: 70px"
     document.getElementById("bc3").className = "btn btn-info button2"
     document.getElementById("bc3").style = "font-weight: bold; font-size: 10px; width: 70px"
-
 }
