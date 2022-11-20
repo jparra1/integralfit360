@@ -1,5 +1,25 @@
 
 $(document).ready(function () {
+    $.ajax({
+        url: '../php/points/pointSession.php',//ubicacion del ponit
+        method: 'GET',// metodo de envio
+        responseType: 'json',//formato recibido
+        data: { info_session: },
+        async: false//hasta que termine la consulta no ejecuta el then
+
+    }).then(function (data) {
+        var dataRecive = JSON.parse(data);
+        try {
+            if (dataRecive["estado"] == "No session") {
+                window.location.replace("index.html")
+            } else {
+                null;
+            }
+        } catch (error) {
+            null;
+        }
+    });
+
     try {
         const urlI = new URLSearchParams(window.location.search);
         document.getElementById("planElegido").textContent = urlI.get('E');
@@ -8,7 +28,7 @@ $(document).ready(function () {
     } catch (error) {
         null;
     }
-
+    
 })
 
 function mediopago() {
@@ -45,9 +65,8 @@ function mediopago() {
                     if (true) { //variable placeholder, no se cual es la condición de éxito
                         Swal.fire({
                             icon: 'success',
-                            title: '',
                             confirmButtonText: "Entendido",
-                            text: '',
+                            confirmButtonColor: "#012626",
                         });
 
                         div_log.innerHTML += `<label class="col-10" style="color: white;"> --> Ingreso Exitoso de - ${email} : estatus: ${dataRecive["estatus"]} - mensaje: ${dataRecive["Mensaje"]} - Nombre: ${dataRecive["data_usuario"]["usuario"]}</label><br>
@@ -57,6 +76,7 @@ function mediopago() {
                             icon: 'error',
                             title: 'Hubo un error',
                             text: 'La información dada no es correcta',
+                            confirmButtonColor: "#012626",
                         });
                         div_log.innerHTML += `<labelclass="col-10" style="color: red;"> --> Ingreso Fallido de - ${email} : Estatus ${dataRecive["estatus"]} - Mensaje ${dataRecive["Mensaje"]} </label><br>
                           `;
@@ -78,74 +98,4 @@ function mediopago() {
         });
     }
 
-    
-}
-
-function selectS(button, price, duration) {
-    limpiar();
-
-    document.getElementById("pEl").textContent = "Plan Sport";
-    document.getElementById("pDu").textContent = price;
-    document.getElementById("pCo").textContent = duration;
-    document.getElementById("pSport").textContent = price;
-
-    button.className = "btn btn-info button3"
-    button.style = "background-color: #012626; font-weight: bold; font-size: 10px;  width: 70px"
-}
-
-function selectH(button, price, duration) {
-    limpiar();
-
-    document.getElementById("pEl").textContent = "Plan Health";
-    document.getElementById("pDu").textContent = price;
-    document.getElementById("pCo").textContent = duration;
-    document.getElementById("pHealth").textContent = price;
-
-    button.className = "btn btn-info button3"
-    button.style = "background-color: #012626; font-weight: bold; font-size: 10px;  width: 70px"
-}
-
-function selectC(button, price, duration) {
-    limpiar();
-
-    document.getElementById("pEl").textContent = "Plan Complete";
-    document.getElementById("pDu").textContent = price;
-    document.getElementById("pCo").textContent = duration;
-    document.getElementById("pComplete").textContent = price;
-
-    button.className = "btn btn-info button3"
-    button.style = "background-color: #012626; font-weight: bold; font-size: 10px;  width: 70px"
-}
-
-function changeR() {
-    document.getElementById("planElegido").textContent = document.getElementById("pEl").textContent;
-    document.getElementById("planDuracion").textContent = document.getElementById("pDu").textContent;
-    document.getElementById("planCosto").textContent = document.getElementById("pCo").textContent;
-}
-
-function limpiar() {
-    document.getElementById("pSport").textContent = "";
-    document.getElementById("pHealth").textContent = "";
-    document.getElementById("pComplete").textContent = "";
-
-    document.getElementById("bs1").className = "btn btn-info button2"
-    document.getElementById("bs1").style = "font-weight: bold; font-size: 10px; width: 70px"
-    document.getElementById("bs2").className = "btn btn-info button2"
-    document.getElementById("bs2").style = "font-weight: bold; font-size: 10px; width: 70px"
-    document.getElementById("bs3").className = "btn btn-info button2"
-    document.getElementById("bs3").style = "font-weight: bold; font-size: 10px; width: 70px"
-
-    document.getElementById("bh1").className = "btn btn-info button2"
-    document.getElementById("bh1").style = "font-weight: bold; font-size: 10px; width: 70px"
-    document.getElementById("bh2").className = "btn btn-info button2"
-    document.getElementById("bh2").style = "font-weight: bold; font-size: 10px; width: 70px"
-    document.getElementById("bh3").className = "btn btn-info button2"
-    document.getElementById("bh3").style = "font-weight: bold; font-size: 10px; width: 70px"
-
-    document.getElementById("bc1").className = "btn btn-info button2"
-    document.getElementById("bc1").style = "font-weight: bold; font-size: 10px; width: 70px"
-    document.getElementById("bc2").className = "btn btn-info button2"
-    document.getElementById("bc2").style = "font-weight: bold; font-size: 10px; width: 70px"
-    document.getElementById("bc3").className = "btn btn-info button2"
-    document.getElementById("bc3").style = "font-weight: bold; font-size: 10px; width: 70px"
 }
