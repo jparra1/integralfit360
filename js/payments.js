@@ -1,9 +1,14 @@
 
 $(document).ready(function () {
-    const urlI = new URLSearchParams(window.location.search);
-    document.getElementById("planElegido").textContent = urlI.get('E');
-    document.getElementById("planDuracion").textContent = urlI.get('D');
-    document.getElementById("planCosto").textContent = urlI.get('C');
+    try {
+        const urlI = new URLSearchParams(window.location.search);
+        document.getElementById("planElegido").textContent = urlI.get('E');
+        document.getElementById("planDuracion").textContent = urlI.get('D');
+        document.getElementById("planCosto").textContent = urlI.get('C');
+    } catch (error) {
+        null;
+    }
+
 })
 
 function mediopago() {
