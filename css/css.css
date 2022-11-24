@@ -78,6 +78,23 @@ nav{
     color: #04BFBF;
     width: 120px;
 }
+.button4{
+    background-color: #d9d9d9;
+    width: 130px;
+}
+.button4:hover{
+    background-color: #012626;
+    color: white;
+}
+.button5{
+    background-color: #012626;
+    color: white;
+    width: 130px;
+}
+.button5:hover{
+    background-color: #012626;
+    color: white;
+}
 .p1{
     color: white;
     font-weight: bold;
@@ -135,4 +152,15 @@ nav{
 }
 h5{
     color: #04BFBF;
+}
+.titulos{
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+}
+#instructor, #nutricionista, #citas{
+    display: none;
+}
+#inicio, #usuario{
+    display: block;
 }
