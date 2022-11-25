@@ -1,3 +1,7 @@
+var dataReciveSesiones;
+var dataReciveUsuario;
+var dataReciveProfesionales;
+
 $(document).ready(function() {
   $.ajax({
     url:'../php/points/pointSession.php?info_session',
@@ -6,27 +10,43 @@ $(document).ready(function() {
     async: false
   }).then(function(data){
     try {
-      var dataRecive = JSON.parse(data);
-      document.getElementById("plan").textContent = dataRecive['info']['plan_adquirido'];
-      document.getElementById("nombreUsuario").textContent = dataRecive['info']['nombre_usuario'] + " " + dataRecive['info']['apellido_usuario'];
+      dataReciveUsuario = JSON.parse(data);
+      /*console.log(dataReciveUsuario);
+      /*console.log(dataReciveUsuario['usuarios'][0]['nombre']);*/
+      document.getElementById("plan").textContent = dataReciveUsuario['info']['plan_adquirido'];
+      document.getElementById("nombreUsuario").textContent = dataReciveUsuario['info']['nombre_usuario'] + " " + dataReciveUsuario['info']['apellido_usuario'];
 
-      document.getElementById("inputNombre").textContent = dataRecive['info']['nombre_usuario'];
-      document.getElementById("inputApellidos").textContent = dataRecive['info']['apellido_usuario'];
-      document.getElementById("inputUsuario").textContent = dataRecive['info']['email_usuario'];
-      document.getElementById("inputPeso").textContent = dataRecive['info']['peso_usuario'];
-      document.getElementById("inputEstatura").textContent = dataRecive['info']['estatura_usuario'];
-      document.getElementById("textAreaLimitaciones").textContent = dataRecive['info']['observaciones_usuario'];
+      document.getElementById("inputNombre").textContent = dataReciveUsuario['info']['nombre_usuario'];
+      document.getElementById("inputApellidos").textContent = dataReciveUsuario['info']['apellido_usuario'];
+      document.getElementById("inputUsuario").textContent = dataReciveUsuario['info']['email_usuario'];
+      document.getElementById("inputPeso").textContent = dataReciveUsuario['info']['peso_usuario'];
+      document.getElementById("inputEstatura").textContent = dataReciveUsuario['info']['estatura_usuario'];
+      document.getElementById("textAreaLimitaciones").textContent = dataReciveUsuario['info']['observaciones_usuario'];
 
-      if (dataRecive['info']['plan_adquirido'] == "SPORT"){
+      if (dataReciveUsuario['info']['plan_adquirido'] == "SPORT"){
         document.getElementById("nutricionistaDiv").hidden = true;
         document.getElementById("comida").hidden = true;
       }
-      if (dataRecive['info']['plan_adquirido'] == "HEALTH"){
+      if (dataReciveUsuario['info']['plan_adquirido'] == "HEALTH"){
         document.getElementById("instructorDiv").hidden = true;
         document.getElementById("rutina").hidden = true;
       }
     } catch (error){
-      console.log("error")
+      console.log(error)
+    }
+  })
+
+  $.ajax({
+    url:'../php/points/pointSDispo.php?sesiones_disponibles',
+    method:'GET',
+    responseType:'json',
+    async: false
+  }).then(function(data){
+    try {
+      dataReciveSesiones = JSON.parse(data);
+      console.log(dataReciveSesiones);
+    } catch (error) {
+      console.log(error)
     }
   })
 
@@ -40,41 +60,107 @@ $(document).ready(function() {
     async: false
   }).then(function(data){
     try {
-      var dataRecive = JSON.parse(data);
-      dataRecive['usuarios'].forEach(element => {
-        if (element.tipo_usuario == "Entrenador"){
-          divItemsInstructor.innerHTML += `<div class="accordion-item"><h2 class="accordion-header" id="headingOne"> 
-          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-          <a><img src="../images/perfil-de-usuario.webp" style="width: 80px; height: 80px; border-radius: 40px; margin-right: 30px;"></a>
-          <p style="font-style: italic;">${element.nombre}</p> </button></h2>
-          <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionInstructor">
-          <div class="accordion-body"><div class="row"><div class="col-lg-3"><label style="margin-bottom: 16px; margin-top: 16px; font-size: 15px; font-weight: bold;" class="col-lg-8">Agendar cita</label>
-          <input id="ifecha" type="date" class="form-select text-center" style="margin-bottom: 16px; " required=""></div>
-          <div class="col-lg-5" style="margin-left: 20px;"><label style="margin-bottom: 16px; margin-top: 16px; font-size: 15px; font-weight: bold;" class="col-lg-8">Horarios disponibles</label>
-          <div class="form-check"><input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-          <label class="form-check-label" for="flexRadioDefault1">9:00 am</label></div></div><div class="col-lg-2"><p style="margin-top: 25px;">
-          <a class="btn btn-info button5" href="" role="button" id="agendarCita">Agendar</a></p></div></div></div></div></div>`
-        }
-        if (element.tipo_usuario == "Nutricionista"){
-          divItemsNutricionista.innerHTML += `<div class="accordion-item"><h2 class="accordion-header" id="headingOne"> 
-          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-          <a><img src="../images/perfil-de-usuario.webp" style="width: 80px; height: 80px; border-radius: 40px; margin-right: 30px;"></a>
-          <p style="font-style: italic;">${element.nombre}</p> </button></h2>
-          <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionNutricionista">
-          <div class="accordion-body"><div class="row"><div class="col-lg-3"><label style="margin-bottom: 16px; margin-top: 16px; font-size: 15px; font-weight: bold;" class="col-lg-8">Agendar cita</label>
-          <input id="ifecha" type="date" class="form-select text-center" style="margin-bottom: 16px; " required=""></div>
-          <div class="col-lg-5" style="margin-left: 20px;"><label style="margin-bottom: 16px; margin-top: 16px; font-size: 15px; font-weight: bold;" class="col-lg-8">Horarios disponibles</label>
-          <div class="form-check"><input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-          <label class="form-check-label" for="flexRadioDefault1">9:00 am</label></div></div><div class="col-lg-2"><p style="margin-top: 25px;">
-          <a class="btn btn-info button5" href="" role="button" id="agendarCita">Agendar</a></p></div></div></div></div></div>`
-        }
-
+      dataReciveProfesionales = JSON.parse(data);
+      console.log(dataReciveProfesionales);
+      /*console.log(dataRecive['usuarios'][0]['nombre']);*/
+      dataReciveProfesionales['usuarios'].forEach(element => {
+        dataReciveSesiones['sesiones'].forEach(sesion => {
+          if (sesion.id_usario_interno == element.id_usuario && sesion.estado_sesion == "DISPONIBLE"){
+            if (element.tipo_usuario == "SPORT"){
+              divItemsInstructor.innerHTML += `<div class="accordion-item"><h2 class="accordion-header" id="heading${sesion.id_sesion}"> 
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${sesion.id_sesion}" aria-expanded="false" aria-controls="collapse${sesion.id_sesion}">
+              <a><img src="../images/perfil-de-usuario.webp" style="width: 80px; height: 80px; border-radius: 40px; margin-right: 30px;"></a>
+              <p style="font-style: italic;">${element.nombre}</p> </button></h2>
+              <div id="collapse${sesion.id_sesion}" class="accordion-collapse collapse" aria-labelledby="heading${sesion.id_sesion}" data-bs-parent="#accordionInstructor">
+              <div class="accordion-body"><div class="row"><div class="col-lg-3" style="margin-left: 20px;"><label style="margin-bottom: 16px; margin-top: 16px; font-size: 15px; font-weight: bold;" class="col-lg-8">Agendar cita</label>
+              <div><p>${sesion.fecha_sesion}</p></div></div>
+              <div class="col-lg-5" style="margin-left: 20px;"><label style="margin-bottom: 16px; margin-top: 16px; font-size: 15px; font-weight: bold;" class="col-lg-8">Horarios disponibles</label>
+              <div><p>${sesion.hora_sesion}</p></div></div><div class="col-lg-2"><p style="margin-top: 25px;">
+              <a class="btn btn-info button5" role="button" id="agendarCita" onclick="agendarCita()">Agendar</a></p></div></div></div></div></div>
+              <input type="hidden" id="sesion" value="${sesion.id_sesion}">`
+            }
+            if (element.tipo_usuario == "HEALTH"){
+              divItemsNutricionista.innerHTML += `<div class="accordion-item"><h2 class="accordion-header" id="heading${sesion.id_sesion}"> 
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${sesion.id_sesion}" aria-expanded="false" aria-controls="collapse${sesion.id_sesion}">
+              <a><img src="../images/perfil-de-usuario.webp" style="width: 80px; height: 80px; border-radius: 40px; margin-right: 30px;"></a>
+              <p style="font-style: italic;">${element.nombre}</p> </button></h2>
+              <div id="collapse${sesion.id_sesion}" class="accordion-collapse collapse" aria-labelledby="heading${sesion.id_sesion}" data-bs-parent="#accordionNutricionista">
+              <div class="accordion-body"><div class="row"><div class="col-lg-3" style="margin-left: 20px;"><label style="margin-bottom: 16px; margin-top: 16px; font-size: 15px; font-weight: bold;" class="col-lg-8">Agendar cita</label>
+              <div><p>${sesion.fecha_sesion}</p></div></div>
+              <div class="col-lg-5" style="margin-left: 20px;"><label style="margin-bottom: 16px; margin-top: 16px; font-size: 15px; font-weight: bold;" class="col-lg-8">Horarios disponibles</label>
+              <div><p>${sesion.hora_sesion}</p></div></div><div class="col-lg-2"><p style="margin-top: 25px;">
+              <a class="btn btn-info button5" role="button" id="agendarCita" onclick="agendarCita()">Agendar</a></p></div></div></div></div></div>
+              <input type="hidden" id="sesion" value="${sesion.id_sesion}">`
+            }
+          }
+        })
       });
     } catch (error){
-      console.log("error")
+      console.log(error)
+    }
+  })
+
+  var divCitas = document.getElementById("modalCitas");
+  $.ajax({
+    url:'../php/points/pointAgenCita.php?id_usuario=' + dataReciveUsuario['info']['id_usuario'],
+    method:'GET',
+    responseType:'json',
+    async: false
+  }).then(function(data){
+    try {
+      var dataReciveCitas = JSON.parse(data);
+      console.log(dataReciveCitas)
+      if (dataReciveCitas['estado'] == "Con sesiones"){
+        dataReciveCitas['sesiones'].forEach(cita => {
+          dataReciveSesiones['sesiones'].forEach(sesion => {
+            if (cita.id_sesion == sesion.id_sesion){
+              dataReciveProfesionales['usuarios'].forEach(element => {
+                if (sesion.id_usario_interno == element.id_usuario){
+                  divCitas.innerHTML += `<div class="row"><div class="col"><label>${sesion.hora_sesion}</label></div>
+              <div class="col"><label>${sesion.fecha_sesion}</label></div>
+              <div class="col"><label>${element.nombre}</label></div>
+              <div class="col"><a href="${cita.url_sesion_meet}" target="_blank" style="text-decoration:none; color=: black">Ir a la sesion</a></div></div><hr>`
+                }
+              })
+            }
+          })
+        })
+      }else {
+        divCitas.innerHTML += `<div>No hay citas agendadas</div>`
+      }
+    } catch (error) {
+      console.log(error);
     }
   })
 })
+
+function agendarCita() {
+  var id_sesion = document.getElementById("sesion").value;
+  
+  $.ajax({
+    url: '../php/points/pointAgenCita.php',
+    method: 'POST',
+    responseType: 'json',
+    data: {
+      id_sesion: id_sesion, id_usuario: dataReciveUsuario['info']['id_usuario'],
+      url_sesion_meet: "https://meet.google.com/fhn-cubu-qzg", estado_sesion: "AGENDADA"
+    },
+    async: false
+  }).then(function (data) {
+    try {
+      var dataReciveCitaAgendada = JSON.parse(data);
+      collapseInicio()
+      Swal.fire({
+        icon: 'success',
+        title: 'Cita Agendada con éxito',
+        confirmButtonText: "Entendido",
+        confirmButtonColor: "#012626",
+    });
+    } catch (error) {
+      console.log(error);
+    }
+  })
+}
 
 function collapseInicio(){
   document.getElementById("inicio").style.display = "block";

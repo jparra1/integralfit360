@@ -52,7 +52,7 @@
               <a class="nav-link aNvbar linkNav text-center" role="button" data-bs-toggle="modal" data-bs-target="#perfil">Perfil</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link aNvbar linkNav text-center" role="button">Citas</a>
+              <a class="nav-link aNvbar linkNav text-center" role="button" data-bs-toggle="modal" data-bs-target="#citas">Citas</a>
             </li>
             <li class="nav-item">
               <a class="nav-link aNvbar linkNav text-center" role="button">Cerrar sesión</a>
@@ -189,6 +189,23 @@
             </div>
         </div>
     </div>
+  </div>
+
+    <!-- Ventana modal Citas -->
+    <div class="modal fade" id="citas" tabindex="-1" aria-labelledby="planes360Label" aria-hidden="true" data-bs-backdrop="static">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="planes360Label" style="font-size: 25px; font-weight: bold; margin-left: 9px;">TU SEGUIMIENTO</h5>
+              </div>
+              <div class="modal-body" id="modalCitas">
+  
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="button3" data-bs-dismiss="modal" aria-label="Close">Cerrar</button>
+              </div>
+          </div>
+      </div>
   </div>
 
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
