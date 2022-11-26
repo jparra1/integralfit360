@@ -27,7 +27,6 @@ $(document).ready(function () {
     } catch (error) {
         console.log(error, data);
     }
-    
 })
 
 function mediopago() {

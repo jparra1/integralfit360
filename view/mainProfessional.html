@@ -59,9 +59,9 @@
     </nav>
   </div>
 
-  <div class="container-fluid" style="margin-top: 71px; margin-bottom: 20px;">
-    <div class="row">
-      <div class="col-lg-3" style="background-color: #04BFBF; margin-left: 20px; margin-top: 20px; border-radius: 10px;">
+  <div class="container-fluid mx-auto col-11" style="margin-top: 71px; margin-bottom: 20px;">
+    <div class="row col-lg-10 col-sm-11 col-12 mx-auto">
+      <div class="col-lg-2 col-md-6 col-sm-10 col-11 mx-auto" style="background-color: #04BFBF; margin-left: 20px; margin-top: 20px; border-radius: 10px;">
         <div class="row text-center" style="margin-top: 10px;">
           <a><img src="../images/perfil-de-usuario.webp" style="width: 150px; height: 150px; border-radius: 75px;"></a>
         </div>
@@ -69,25 +69,21 @@
           <label id="nombreUsuario" style="color: #012626; font-weight: bold;">Maria Sofia</label>
         </div>
         <div class="row text-center" style="margin-top: 20px;">
-          <p>
-            <a class="btn btn-info button5" data-bs-toggle="collapse" href="" role="button" onclick="collapseUsuario()" id="usuarioButton">Usuarios</a>
-          </p>
+          <button type="submit" class="buttonHistory col-lg-10 col-md-6 col-sm-10 col-11 mx-auto" href="" onclick="collapseUsuario()" id="usuarioButton">Usuarios</button>
         </div>
-        <div class="row text-center" style="margin-top: 20px;">
-          <p>
-            <a class="btn btn-info button4" data-bs-toggle="collapse" href="" role="button" onclick="collapseCitas()" id="citasButton">Historial de citas</a>
-          </p>
+        <div class="row text-center" style="margin-top: 20px; margin-bottom: 20px;">
+          <button type="submit" class="buttonHistory col-lg-10 col-md-6 col-sm-10 col-11 mx-auto" href="" onclick="collapseCitas()" id="citasButton">Historial de citas</button>
         </div>
       </div>
       <div class="col-lg-8" style="background-color: #eef3f6; margin-left: 20px; margin-top: 20px; border-radius: 10px;">
         <div class="collapse" id="usuario">
           <p style="margin-top: 5px; color: #012626; font-style: oblique; font-weight: bold;">Información de tus pacientes</p>
-          <div style="background-color: #04BFBF; height: 100px; padding: 10px; width: 55%; border-radius: 50px;">
+          <div style="background-color: #04BFBF; height: 100px; padding: 10px;  border-radius: 50px;" class="col-0 mx-auto">
             <div class="row">
               <div class="col-lg-2">
                 <a><img src="../images/perfil-de-usuario.webp" style="width: 80px; height: 80px; border-radius: 40px; margin-right: 30px;"></a>
               </div>
-              <div class="col-lg-5">
+              <div class="col-lg-5 mx-auto">
                 <div class="row" style="padding: 10px;">
                   <div class="col">
                     <label style="font-weight: bold;">Nombre de usuario</label>
@@ -99,13 +95,24 @@
                   </div>
                 </div>
               </div>
+              <div class="col-lg-4 my-auto mx-auto">
+                <a href=""></a>
+              </div>
             </div>
           </div>
         </div>
         <div class="collapse" id="citas">
-          <div>
-            Nutricionista placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
-          </div>
+            <div class="col-12">
+              <button type="submit">Agregar Cita</button>
+            </div>
+            <div style="background-color: black; height: 40px; padding: 10px;  border-radius: 50px;margin-top: 20px;" class="col-12 mx-auto">
+            <label class="col-1 mx-auto text-center" style="padding-left: 10px;color: white;">N°</label>
+            <label class="col-5 mx-auto" style="padding-left: 10px;color: white;">Usuario</label>
+            <label class="col-2 mx-auto text-center" style="padding-left: 10px;color: white;">Plan</label>
+            <label class="col-3 mx-auto text-end" style="padding-left: 10px;color: white;">Sesion</label>
+
+            </div>
+
         </div>
       </div>
     </div>

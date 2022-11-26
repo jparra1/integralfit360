@@ -156,7 +156,7 @@ function agendarCita() {
         title: 'Cita Agendada con éxito',
         confirmButtonText: "Entendido",
         confirmButtonColor: "#012626",
-    });
+      });
     } catch (error) {
       console.log(error);
     }

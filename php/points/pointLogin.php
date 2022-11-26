@@ -15,7 +15,16 @@ include '../ApiRest.php';
                     $_SESSION['info']=$resultado;
                     echo json_encode(array("usuario"=>"Existente","estatus"=>"Activo","data_usuario"=>$resultado));
                 }else{
-                    echo json_encode(array("usuario"=>"No Existente","estatus"=>"Null"));
+                    $query="SELECT * FROM usuarios_interno WHERE usuario='".$_POST['email_usuario']."' AND contraseña ='".$_POST['password_usuario']."'";
+                    $resultado=methodGET($query)->fetch(PDO::FETCH_ASSOC);
+                    if ($resultado) {
+                        session_start();
+                        $_SESSION['estado']='activo';
+                        $_SESSION['info']=$resultado;
+                        echo json_encode(array("usuario"=>"Existente","estatus"=>"Entrenador","data_usuario"=>$resultado));
+                    }else{
+                        echo json_encode(array("usuario"=>"No Existente","estatus"=>"Null"));
+                    }
                 }
                 exit();
             }

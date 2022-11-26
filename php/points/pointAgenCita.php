@@ -43,6 +43,17 @@ include '../ApiRest.php';
                     }
                 exit();
             }
+            if (isset($_GET["id_usuario_interno"])) {
+                header("HTTP/1.1 200 OK");
+                    $query="SELECT * FROM sesiones_agendadas WHERE id_usuario='".$_GET["id_usuario"]."'";
+                    $resultado=methodGET($query)->fetchAll();
+                    if ($resultado) {
+                        echo json_encode(array("estado"=>"Con sesiones","sesiones"=>$resultado));
+                    }else {
+                        echo json_encode(array("estado"=>"Sin sesiones"));
+                    }
+                exit();
+            }
         }
             
         

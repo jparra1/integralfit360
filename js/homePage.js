@@ -23,7 +23,15 @@ function ingresar() {
                     //aun falta revisar bien que hace al ingresar
                     document.getElementById("correoUsuario").value = "";
                     document.getElementById("password").value = "";
-                    window.location.replace("payment.html")                  
+                    console.log(data);
+                    if (dataRecive["estatus"] =="Entrenador") {
+                        window.location.replace("mainProfessional.html")                  
+                    }else if(dataRecive["data_usuario"]["tipo_usuario"]==""){
+                        window.location.replace("payment.html")
+                    }else{
+                        window.location.replace("mainUser.html")
+                    }
+
                 }else{
                     Swal.fire({
                         icon: 'error',
