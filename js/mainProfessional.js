@@ -2,39 +2,23 @@
 
 $(document).ready(function () {
   $.ajax({
-    url:'../php/points/pointLogin.php',//ubicacion del ponit
-    method:'POST',// metodo de envio
-    responseType:'json',//formato recibido
-    data: { email_usuario: email, password_usuario: passw},//informacion que envio en json
+    url: '../php/points/pointSession.php?info_session',//ubicacion del ponit
+    method: 'GET',// metodo de envio
+    responseType: 'json',//formato recibido
     async: false//hasta que termine la consulta no ejecuta el then
 
-}).then(function (data) {
-    try {
-        var dataRecive = JSON.parse(data);
-        if (dataRecive["usuario"] == "Existente") {
-            //aun falta revisar bien que hace al ingresar
-            document.getElementById("correoUsuario").value = "";
-            document.getElementById("password").value = "";
-            console.log(data);
-            if (dataRecive["estatus"] =="Entrenador") {
-                window.location.replace("mainProfessional.html")                  
-            }else if(dataRecive["data_usuario"]["tipo_usuario"]==""){
-                window.location.replace("payment.html")
-            }else{
-                window.location.replace("mainUser.html")
-            }
-
-        }else{
-            Swal.fire({
-                icon: 'error',
-                title: 'Revise las credenciales',
-                text: 'El correo o la contraseña no son correctos',
-                confirmButtonColor: "#012626",
-                });
-        }
-    } catch (error) {
-        null;
-    }
+  }).then(function (data) {
+    console.log(data);
+      var dataRecive = JSON.parse(data);
+      try {
+          if (dataRecive["estado"] == "No session") {
+              window.location.replace("index.html")
+          } else {
+              null;
+          }
+      } catch (error) {
+          console.log(error, data);
+      }
   });
 })
 function collapseUsuario(){
