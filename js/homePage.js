@@ -9,8 +9,12 @@ $(document).ready(function () {
         try {
             console.log(data)
             dataReciveUsuario = JSON.parse(data);
-            if (dataReciveUsuario['estado'] == ("activo")){
-                window.location.href = "mainUser.html";
+            if (dataReciveUsuario['estado'] == ("activo")) {
+                if (dataReciveUsuario['info']['plan_adquirido'] != "") {
+                    window.location.href = "mainUser.html";
+                } else {
+                    window.location.href = "newUser.html";
+                }
             }
         } catch (error) {
             console.log(error, data)
@@ -41,8 +45,12 @@ function ingresar() {
                     console.log(data);
                     if (dataRecive["estatus"] =="Entrenador") {
                         window.location.replace("mainProfessional.html")                  
-                    }else if(dataRecive["data_usuario"]["tipo_usuario"]==""){
-                        window.location.href = "payment.html";
+                    } else if (dataRecive["data_usuario"]["plan_adquirido"] == "") {
+                        if (document.getElementById("pEl").textContent != "") {
+                            window.location.href = "payment.html?E=" + document.getElementById("pEl").textContent + "&D=" + document.getElementById("pDu").textContent + "&C=" + document.getElementById("pCo").textContent;
+                        } else {
+                            window.location.href = "newUser.html";
+                        }
                     }else{
                         window.location.href = "mainUser.html";
                     }
@@ -133,8 +141,4 @@ function registrar() {
             confirmButtonColor: "#012626",
         });
     }
-}
-
-function enviar() {
-    window.location.replace("payment.html?E=" + document.getElementById("pEl").textContent + "&D=" + document.getElementById("pDu").textContent + "&C=" + document.getElementById("pCo").textContent);
 }
