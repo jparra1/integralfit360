@@ -4,7 +4,6 @@ $(document).ready(function () {
         url: '../php/points/pointSession.php',//ubicacion del ponit
         method: 'GET',// metodo de envio
         responseType: 'json',//formato recibido
-        data: { info_session: },
         async: false//hasta que termine la consulta no ejecuta el then
 
     }).then(function (data) {
@@ -16,7 +15,7 @@ $(document).ready(function () {
                 null;
             }
         } catch (error) {
-            null;
+            console.log(error, data);
         }
     });
 
@@ -26,7 +25,7 @@ $(document).ready(function () {
         document.getElementById("planDuracion").textContent = urlI.get('D');
         document.getElementById("planCosto").textContent = urlI.get('C');
     } catch (error) {
-        null;
+        console.log(error, data);
     }
     
 })
@@ -89,6 +88,12 @@ function mediopago() {
             });
 
 
+        }else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Plan no elegido',
+                text: 'Por favor seleccione algún plan para continuar',
+            });
         }
     } else {
         Swal.fire({

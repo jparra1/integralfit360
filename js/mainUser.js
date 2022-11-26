@@ -10,6 +10,7 @@ $(document).ready(function() {
     async: false
   }).then(function(data){
     try {
+      console.log(data)
       dataReciveUsuario = JSON.parse(data);
       /*console.log(dataReciveUsuario);
       /*console.log(dataReciveUsuario['usuarios'][0]['nombre']);*/
