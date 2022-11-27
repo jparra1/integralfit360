@@ -25,6 +25,9 @@ include '../ApiRest.php';
                     echo json_encode(array("usuario"=>"Registrado","info"=>$resultado));
                     $query="UPDATE info_usuario SET plan_adquirido='".$_POST["tipo_plan"]."' WHERE id_usuario='".$_POST["id_usuario"]."'";
                     $resultado=methodPUT($query);
+                    
+                    session_start();
+                    $_SESSION["info"]["plan_adquirido"] = $_POST["tipo_plan"];
                 }else{
                     echo json_encode(array("pago"=>"Usuario no Existe","estatus"=>"Null"));
                 }

@@ -6,19 +6,19 @@ $(document).ready(function () {
         responseType: 'json',
         async: false
     }).then(function (data) {
+        dataReciveUsuario = JSON.parse(data);
+
         try {
-            dataReciveUsuario = JSON.parse(data);
-
-            try {
-                if (dataReciveUsuario["estado"] == "No session") {
-                    window.location.href = "index.html";
-                } else {
-                    null;
-                }
-            } catch (error) {
-                console.log(error, data);
+            if (dataReciveUsuario["estado"] == "No session") {
+                window.location.href = "index.html";
+            } else {
+                null;
             }
+        } catch (error) {
+            console.log(error, data);
+        }
 
+        try {
             document.getElementById("plan").textContent = dataReciveUsuario['info']['plan_adquirido'];
 
             document.getElementById("iNombre").textContent = dataReciveUsuario['info']['nombre_usuario'];
@@ -37,40 +37,7 @@ $(document).ready(function () {
                 document.getElementById("rutina").hidden = true;
             }
         } catch (error) {
-            console.log(error)
-        }
-    })
-
-    var divCitas = document.getElementById("modalCitas");
-    $.ajax({
-        url: '../php/points/pointAgenCita.php?id_usuario=' + dataReciveUsuario['info']['id_usuario'],
-        method: 'GET',
-        responseType: 'json',
-        async: false
-    }).then(function (data) {
-        try {
-            var dataReciveCitas = JSON.parse(data);
-            console.log(dataReciveCitas)
-            if (dataReciveCitas['estado'] == "Con sesiones") {
-                dataReciveCitas['sesiones'].forEach(cita => {
-                    dataReciveSesiones['sesiones'].forEach(sesion => {
-                        if (cita.id_sesion == sesion.id_sesion) {
-                            dataReciveProfesionales['usuarios'].forEach(element => {
-                                if (sesion.id_usario_interno == element.id_usuario) {
-                                    divCitas.innerHTML += `<div class="row"><div class="col"><label>${sesion.hora_sesion}</label></div>
-              <div class="col"><label>${sesion.fecha_sesion}</label></div>
-              <div class="col"><label>${element.nombre}</label></div>
-              <div class="col"><a href="${cita.url_sesion_meet}" target="_blank" style="text-decoration:none; color=: black">Ir a la sesion</a></div></div><hr>`
-                                }
-                            })
-                        }
-                    })
-                })
-            } else {
-                divCitas.innerHTML += `<div>No hay citas agendadas</div>`
-            }
-        } catch (error) {
-            console.log(error);
+            console.log(error, data)
         }
     })
 
@@ -127,7 +94,7 @@ function mediopago() {
         let month = date.getMonth() + 1;
         let year = date.getFullYear();
 
-        let currentDate = `${day}-${month}-${year}`;
+        let currentDate = `${year}-${month}-${day}`;
 
         if (pEle != "" && pDur != "" && pCos != "") {
             if (id != "") {
