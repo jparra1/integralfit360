@@ -15,13 +15,21 @@ $(document).ready(function () {
     async: false//hasta que termine la consulta no ejecuta el then
 
   }).then(function (data) {
-    console.log(data);
       dataRecive = JSON.parse(data);
       try {
           if (dataRecive["estado"] == "No session") {
               window.location.replace("index.html")
           } else {
               document.getElementById("nombreUsuario").innerHTML=dataRecive["info"]["nombre"]
+              document.getElementById("foto_entrenador").innerHTML=`<img src="${"../images/"+dataRecive["info"]["id_usuario"]+"_user.png"}" style="width: 150px; height: 150px; border-radius: 75px;" >`
+              if (dataRecive["info"]["tipo_usuario"]=="SPORT") {
+                document.getElementById("SPORT").style.display="flex"
+              } else if(dataRecive["info"]["tipo_usuario"]=="HEALTH"){
+                document.getElementById("HEALTH").style.display="flex"
+              }else if(dataRecive["info"]["tipo_usuario"]=="COMPLETE"){
+                document.getElementById("SPORT").style.display="flex"
+                document.getElementById("HEALTH").style.display="flex"
+              }
           }
       } catch (error) {
           console.log(error, data);
@@ -48,7 +56,14 @@ function loadUsersInstructive() {
       info_sesion = citasAsignadas["sesiones"].find(x => x["id_sesion"] == element["id_sesion"])
       if(info_sesion){
         infoUsuario = usuarios_clientes["usuarios_clientes"].find(x => x.id_usuario == info_sesion["id_usuario"])
-        infos_usuario.push(infoUsuario);
+        if (infos_usuario.length>0) {
+          if (!infos_usuario.find(x => x["id_usuario"] == info_sesion["id_usuario"])) {
+            infos_usuario.push(infoUsuario);
+          }
+        }else{
+          infos_usuario.push(infoUsuario);
+        }
+        
       }
     }
     contentHistorialCitas.innerHTML+=`
@@ -189,7 +204,6 @@ function usuariosinternosF() {
     async: false
   }).then(function (data) {
       try {
-          console.log(data)
           usuarios_internos = JSON.parse(data);
       } catch (error) {
           console.log(error, data)
@@ -205,7 +219,6 @@ function usuariosclientesF() {
     async: false
   }).then(function (data) {
       try {
-          console.log(data)
           usuarios_clientes = JSON.parse(data);
       } catch (error) {
           console.log(error, data)
@@ -220,7 +233,6 @@ function citasDisponiblesF() {
     async: false
   }).then(function (data) {
       try {
-          console.log(data,"dispo")
           citasDisponibles = JSON.parse(data);
       } catch (error) {
           console.log(error, data)
@@ -235,7 +247,6 @@ function citasAsignadasF() {
     async: false
   }).then(function (data) {
       try {
-          console.log(data,"AGENDADAS")
           citasAsignadas = JSON.parse(data);
       } catch (error) {
           console.log(error, data)
@@ -250,7 +261,6 @@ function tareasAsignadasF() {
     async: false
   }).then(function (data) {
       try {
-          console.log(data)
           tareasAsignadas = JSON.parse(data);
       } catch (error) {
           console.log(error, data)
