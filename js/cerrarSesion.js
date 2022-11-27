@@ -6,15 +6,6 @@ function cerrarSesion(){
         async: false//hasta que termine la consulta no ejecuta el then
 
     }).then(function (data) {
-        var dataRecive = JSON.parse(data);
-        try {
-            if (dataRecive["estado"] == "Session Cerrada") {
-                window.location.href="index.html"
-            } else {
-                console.log("error");
-            }
-        } catch (error) {
-            console.log(error, data);
-        }
+        location.reload()
     });
   }
