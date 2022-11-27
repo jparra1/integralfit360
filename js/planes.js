@@ -67,3 +67,7 @@ function limpiar() {
     document.getElementById("bc3").className = "btn btn-info button2"
     document.getElementById("bc3").style = "font-weight: bold; font-size: 10px; width: 70px"
 }
+
+function enviar() {
+    window.location.href = "payment.html?E=" + document.getElementById("pEl").textContent + "&D=" + document.getElementById("pDu").textContent + "&C=" + document.getElementById("pCo").textContent;
+}

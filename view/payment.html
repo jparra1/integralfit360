@@ -30,7 +30,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="navbar_360" style="padding: 0px;">
             <!--1 contenedor fluido por boostrap -->
             <div class="container-fluid ">
-                <a class="navbar-brand" id="imagen_nav" href="mainUser.html">
+                <a class="navbar-brand" id="imagen_nav" href="newUser.html">
                     <img src="../images/nav360.png"
                          alt="Integral Solution" style="margin-left: 20px; width:90px">
                 </a>
@@ -43,13 +43,10 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
                     <ul class="navbar-nav" id="contextNav">
                         <li class="nav-item">
-                            <a class="nav-link aNvbar linkNav text-center" role="button" href="mainUser.html">Menú principal</a>
+                            <a class="nav-link aNvbar linkNav text-center" role="button" href="newUser.html">Menú principal</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link aNvbar linkNav text-center" role="button" data-bs-toggle="modal" data-bs-target="#perfil">Perfil</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link aNvbar linkNav text-center" role="button" data-bs-toggle="modal" data-bs-target="#citas">Citas</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link aNvbar linkNav text-center" role="button">Cerrar sesión</a>
@@ -155,7 +152,7 @@
                         </div>
 
                         <div>
-                            <button type="submit" class="button3 text-center" style="margin-top: 10px; margin-bottom: 10px; width: 100%; height: 40px; " onclick="mediopago()">Agregar medio de pago</button>
+                            <button type="submit" class="button3 text-center" style="margin-top: 10px; margin-bottom: 10px; width: 100%; height: 40px; " onclick="mediopago()">Pagar</button>
                         </div>
 
                     </div>
@@ -165,128 +162,8 @@
         </div>
     </div>
 
-    <!-- Ventana modal de login -->
-    <div class="modal fade" id="login" tabindex="-1" aria-labelledby="loginLabel" aria-hidden="true" data-bs-backdrop="static">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="loginLabel" style="font-size: 25px; font-weight: bold; margin-left: 9px;">INICIAR SESIÓN</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="col-11 mx-auto text-center">
-                        <label id="correo" class="col-10">Usuario</label><br>
-                        <input class="col-8 input" type="email" id="correoUsuario" autocomplete="off" placeholder="Email"><br>
-                        <label class="col-10" id="pass" style="margin-top:15px;">Contraseña</label><br>
-                        <input class="col-8 input" type="password" id="password" autocomplete="off" placeholder="Password">
-                        <br> <br> <button type="button" value="Ingresar" onclick="ingresar()" class="col-4 aNvbar linkNav text-center aLink my-auto" style="margin: 7px; padding: 7px;">Ingresar</button>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="button3" data-bs-toggle="modal" data-bs-target="#registrarse">Registrarse</button>
-                </div>
-            </div>
-        </div>
-    </div>
+ 
 
-    <!--Ventana modal de Registro -->
-    <div class="modal fade" id="registrarse" tabindex="-1" aria-labelledby="registrarseLabel" aria-hidden="true" data-bs-backdrop="static">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="registrarseLabel" style="font-size: 25px; font-weight: bold; margin-left: 9px;">REGISTRO</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <h5 style="font-size: 21px; color: black;">DATOS PERSONALES</h5>
-                    <form>
-                        <div class="row">
-                            <div class="col-lg-4">
-                                <label for="inputTipoDocumentoIdentidad" style="margin-left: 10px; margin-bottom: 16px; margin-top: 8px; " class="p3">DOCUMENTO DE IDENTIDAD</label>
-                            </div>
-                            <div class="col-sm-3">
-                                <select id="inputTipoDocumentoIdentidad" class="form-select text-center" style=" margin-bottom: 16px;" required="">
-                                    <option selected></option>
-                                    <option>Cédula de ciudadania</option>
-                                    <option>Cédula de extranjería</option>
-                                    <option>Pasaporte</option>
-                                </select>
-                            </div>
-                            <div class="col-sm">
-                                <input type="number" class="form-control" id="inputNumeroIdentidad" style=" margin-bottom: 16px;" required>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-2" style="margin-bottom: 15px">
-                                <label for="inputNombre" style="margin-left: 10px; margin-top: 8px;" class="p3">NOMBRE</label>
-                            </div>
-                            <div class="col" style="margin-bottom: 15px">
-                                <input type="text" class="form-control" id="inputNombre" style="" margin-bottom: 16px;" required>
-                            </div>
-                            <div class="col-lg-2" style="margin-bottom: 15px">
-                                <label for="inputApellidos" style="margin-left: 10px; margin-top: 8px;" class="p3">APELLIDOS</label>
-                            </div>
-                            <div class="col" style="margin-bottom: 15px">
-                                <input type="text" class="form-control" id="inputApellidos" style="" margin-bottom: 16px;" required>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-lg-2" style="margin-bottom: 15px">
-                                <label for="inputUsuario" style="margin-left: 10px; margin-top: 8px;" class="p3">E-MAIL</label>
-                            </div>
-                            <div class="col" style="margin-bottom: 15px">
-                                <input type="email" class="form-control" id="inputUsuario" style="" margin-bottom: 16px;" placeholder="example@mail.com" required>
-                            </div>
-                            <div class="col-lg-2" style="margin-bottom: 15px">
-                                <label for="inputPassword" style="margin-left: 10px; margin-top: 8px;" class="p3">CONTRASEÑA</label>
-                            </div>
-                            <div class="col" style="margin-bottom: 15px">
-                                <input type="password" class="form-control" id="inputPassword" style="" margin-bottom: 16px;" required>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-sm-2">
-                                <label for="inputPeso" style="margin-left: 10px; margin-bottom: 16px; margin-top: 8px; " class="p3">PESO</label>
-                            </div>
-                            <div class="col-sm-2">
-                                <input type="number" class="form-control" id="inputPeso" style=" margin-bottom: 16px;" min="20" max="300" required>
-                            </div>
-                            <div class="col-sm-2">
-                                <label for="inputEdad" style="margin-left: 10px; margin-bottom: 16px; margin-top: 8px; " class="p3">EDAD</label>
-                            </div>
-                            <div class="col-sm-2">
-                                <input type="number" class="form-control" id="inputEdad" style=" margin-bottom: 16px;" min="12" max="110" step="1" required>
-                            </div>
-                            <div class="col-sm-2">
-                                <label for="inputGenero" style="margin-left: 10px; margin-bottom: 16px; margin-top: 8px; " class="p3">GENERO</label>
-                            </div>
-                            <div class="col-sm-2">
-                                <select id="inputGenero" class="form-select text-center" style=" margin-bottom: 16px;" required="">
-                                    <option selected></option>
-                                    <option>H</option>
-                                    <option>M</option>
-                                    <option>Otro</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div style="margin-top: 25px;">
-                            <label for="textAreaLimitaciones" style="font-weight: bold; margin-bottom: 15px;">CARACTERISTICAS ESPECIALES A TENER EN CUENTA</label>
-                            <textarea class="form-control" id="textAreaLimitaciones" rows="3" placeholder="Describir dolencias que no le permitan realizar algunos movimientos, o ejercicios que no pueda realizar."></textarea>
-                        </div>
-
-                        <div class="modal-footer">
-                            <button type="button" class="button3" onclick="registrar()">Registrarse</button>
-                        </div>
-
-                    </form>
-                </div>
-
-            </div>
-        </div>
-    </div>
 
     <!-- Ventana modal de planes -->
     <div class="modal fade" id="planes360" tabindex="-1" aria-labelledby="planes360Label" aria-hidden="true" data-bs-backdrop="static">
