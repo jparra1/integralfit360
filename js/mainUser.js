@@ -3,7 +3,27 @@ var dataReciveUsuario;
 var dataReciveProfesionales;
 var dataReciveCitas;
 
-$(document).ready(function() {
+$(document).ready(function () {
+    $.ajax({
+        url: '../php/points/pointSession.php?info_session',//ubicacion del ponit
+        method: 'GET',// metodo de envio
+        responseType: 'json',//formato recibido
+        async: false//hasta que termine la consulta no ejecuta el then
+
+    }).then(function (data) {
+        console.log(data);
+        var dataRecive = JSON.parse(data);
+        try {
+            if (dataRecive["estado"] == "No session") {
+                window.location.replace("index.html")
+            } else {
+                null;
+            }
+        } catch (error) {
+            console.log(error, data);
+        }
+    });
+
   $.ajax({
     url:'../php/points/pointSession.php?info_session',
     method:'GET',
