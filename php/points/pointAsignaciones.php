@@ -17,7 +17,7 @@ include '../ApiRest.php';
                     fecha_asignacion,
                     estado_asignacion) 
                     VALUES (
-                    '".$_POST["id_usuario"]."',
+                    '".$_POST["id_usuario_asignado"]."',
                     '".$_POST["tipo_asignacion"]."',
                     '".$_POST["id_user_interno"]."',
                     '".$_POST["contenido1_asignacion"]."',
@@ -43,6 +43,12 @@ include '../ApiRest.php';
                     }else {
                         echo json_encode(array("estado"=>"Sin sesiones"));
                     }
+                exit();
+            }else{
+                header("HTTP/1.1 200 OK");
+                    $query="SELECT * FROM asignaciones_a_usuarios ";
+                    $resultado=methodGET($query)->fetchAll();
+                    echo json_encode(array("sesiones"=>$resultado));
                 exit();
             }
         }
