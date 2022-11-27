@@ -41,7 +41,7 @@ $(document).ready(function () {
       document.getElementById("inputApellidos").textContent = dataReciveUsuario['info']['apellido_usuario'];
       document.getElementById("inputUsuario").textContent = dataReciveUsuario['info']['email_usuario'];
       document.getElementById("inputPeso").textContent = dataReciveUsuario['info']['peso_usuario'];
-      document.getElementById("inputEstatura").textContent = dataReciveUsuario['info']['estatura_usuario'];
+      /*document.getElementById("inputEstatura").textContent = dataReciveUsuario['info']['estatura_usuario'];*/
       document.getElementById("textAreaLimitaciones").textContent = dataReciveUsuario['info']['observaciones_usuario'];
 
       if (dataReciveUsuario['info']['plan_adquirido'] == "SPORT"){
@@ -99,7 +99,7 @@ $(document).ready(function () {
               divItemsInstructor.innerHTML += `<div class="accordion-item"><h2 class="accordion-header" id="heading${sesion.id_sesion}"> 
               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${sesion.id_sesion}" aria-expanded="false" aria-controls="collapse${sesion.id_sesion}">
               <a><img src="../images/perfil-de-usuario.webp" style="width: 80px; height: 80px; border-radius: 40px; margin-right: 30px;"></a>
-              <p style="font-style: italic;">${element.nombre}</p> </button></h2>
+              <p style="font-style: italic;">Instructor: ${element.nombre} <br> Sesion: ${sesion.titulo_sesion}</p></button></h2>
               <div id="collapse${sesion.id_sesion}" class="accordion-collapse collapse" aria-labelledby="heading${sesion.id_sesion}" data-bs-parent="#accordionInstructor">
               <div class="accordion-body"><div class="row"><div class="col-lg-3" style="margin-left: 20px;"><label style="margin-bottom: 16px; margin-top: 16px; font-size: 15px; font-weight: bold;" class="col-lg-8">Agendar cita</label>
               <div><p>${sesion.fecha_sesion}</p></div></div>
@@ -112,7 +112,7 @@ $(document).ready(function () {
               divItemsNutricionista.innerHTML += `<div class="accordion-item"><h2 class="accordion-header" id="heading${sesion.id_sesion}"> 
               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${sesion.id_sesion}" aria-expanded="false" aria-controls="collapse${sesion.id_sesion}">
               <a><img src="../images/perfil-de-usuario.webp" style="width: 80px; height: 80px; border-radius: 40px; margin-right: 30px;"></a>
-              <p style="font-style: italic;">${element.nombre}</p> </button></h2>
+              <p style="font-style: italic;">Nutricionista: ${element.nombre}</p> <p>Sesión: ${sesion.titulo_sesion}</p></button></h2>
               <div id="collapse${sesion.id_sesion}" class="accordion-collapse collapse" aria-labelledby="heading${sesion.id_sesion}" data-bs-parent="#accordionNutricionista">
               <div class="accordion-body"><div class="row"><div class="col-lg-3" style="margin-left: 20px;"><label style="margin-bottom: 16px; margin-top: 16px; font-size: 15px; font-weight: bold;" class="col-lg-8">Agendar cita</label>
               <div><p>${sesion.fecha_sesion}</p></div></div>
