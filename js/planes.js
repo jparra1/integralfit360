@@ -2,9 +2,9 @@
 function selectS(button, price, duration) {
     limpiar();
 
-    document.getElementById("pEl").textContent = "Plan Sport";
-    document.getElementById("pDu").textContent = price;
-    document.getElementById("pCo").textContent = duration;
+    document.getElementById("pEl").textContent = "SPORT";
+    document.getElementById("pDu").textContent = duration;
+    document.getElementById("pCo").textContent = price;
     document.getElementById("pSport").textContent = price;
 
     button.className = "btn btn-info button3"
@@ -14,9 +14,9 @@ function selectS(button, price, duration) {
 function selectH(button, price, duration) {
     limpiar();
 
-    document.getElementById("pEl").textContent = "Plan Health";
-    document.getElementById("pDu").textContent = price;
-    document.getElementById("pCo").textContent = duration;
+    document.getElementById("pEl").textContent = "HEALTH";
+    document.getElementById("pDu").textContent = duration;
+    document.getElementById("pCo").textContent = price;
     document.getElementById("pHealth").textContent = price;
 
     button.className = "btn btn-info button3"
@@ -26,9 +26,9 @@ function selectH(button, price, duration) {
 function selectC(button, price, duration) {
     limpiar();
 
-    document.getElementById("pEl").textContent = "Plan Complete";
-    document.getElementById("pDu").textContent = price;
-    document.getElementById("pCo").textContent = duration;
+    document.getElementById("pEl").textContent = "COMPLETE";
+    document.getElementById("pDu").textContent = duration;
+    document.getElementById("pCo").textContent = price;
     document.getElementById("pComplete").textContent = price;
 
     button.className = "btn btn-info button3"

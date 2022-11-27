@@ -65,13 +65,13 @@
 
         <div class="col-11 mx-auto">
             <h1 style="color: #04BFBF; font-size: 40px;">REGISTRO DE MEDIO DE PAGO (DEMO)</h1>
-            <form>
-                <div class="row">
-                    <div class="col-lg-9">
+            <div class="row">
+                <div class="col-lg-9">
+                    <form>
                         <div class="row">
                             <div class="col-lg-4">
                                 <label for="itarjeta" style=" margin-bottom: 16px; margin-top: 16px; " class="p3 col-lg-6">NÚMERO DE TARJETA</label>
-                                <input type="number" class="form-control col-lg-4" id="itarjeta" style=" margin-bottom: 16px;" required>
+                                <input type="number" class="form-control col-lg-4" id="itarjeta" style=" margin-bottom: 16px;" step="1" required>
                                 <a class="" href="#" id="imagen_nav"><img src="../images/payment_cards.png" style="width: 225px"></a>
                             </div>
                             <div class="col-lg-3">
@@ -80,7 +80,7 @@
                             </div>
                             <div class="col-lg-3">
                                 <label for="icodigoseguridad" style="margin-bottom: 16px; margin-top: 16px; " class="p3 col-lg-10">CÓDIGO DE SEGURIDAD</label>
-                                <input type="number" class="form-control col-lg-4" id="icodigoseguridad" style=" margin-bottom: 16px;" required>
+                                <input type="number" class="form-control col-lg-4" id="icodigoseguridad" style=" margin-bottom: 16px;" step="1" max="999" required>
                             </div>
                         </div>
 
@@ -130,35 +130,35 @@
                                 <label for="ipostal" style="margin-top: 8px;" class="p3">CODIGO POSTAL</label>
                             </div>
                             <div class="col" style="margin-bottom: 15px">
-                                <input type="text" class="form-control" id="ipostal" style="" margin-bottom: 16px;" required>
+                                <input type="number" class="form-control" id="ipostal" style="" margin-bottom: 16px;" step="1" required>
                             </div>
                             <div class="col-lg-2" style="margin-bottom: 15px">
                                 <label for="itelefono" style="margin-top: 8px;" class="p3">TELEFONO</label>
                             </div>
                             <div class="col" style="margin-bottom: 15px">
-                                <input type="tel" class="form-control" id="itelefono" style="" margin-bottom: 16px;" required>
+                                <input type="tel" class="form-control" id="itelefono" style="" margin-bottom: 16px;" step="1" required>
                             </div>
                         </div>
 
-                    </div>
-
-                    <div class="col-lg-3" style="background-color: lightgrey; border-radius: 25px; height: 450px;" onload="recibir()">
-                        <h3 class="text-center" style="margin-top: 10px">Resumen de compra</h3>
-                        <button type="button" class="button1 text-center justify-content-end" style="margin-top: 10px; margin-bottom: 10px; width: 100%;  height: 40px;" onclick="limpiar()" data-bs-toggle="modal" data-bs-target="#planes360">Opciones</button>
-                        <div style="background-color: white; border-radius: 10px">
-                            <label id="planElegido" style="margin-left: 10px"></label><br />
-                            <label id="planCosto" style="margin-left: 10px"></label><br />
-                            <label id="planDuracion" style="margin-left: 10px"></label>
-                        </div>
-
-                        <div>
-                            <button type="submit" class="button3 text-center" style="margin-top: 10px; margin-bottom: 10px; width: 100%; height: 40px; " onclick="mediopago()">Pagar</button>
-                        </div>
-
-                    </div>
+                    </form>
                 </div>
-            </form>
 
+
+                <div class="col-lg-3" style="background-color: lightgrey; border-radius: 25px; height: 450px;" onload="recibir()">
+                    <h3 class="text-center" style="margin-top: 10px">Resumen de compra</h3>
+                    <button type="button" class="button1 text-center justify-content-end" style="margin-top: 10px; margin-bottom: 10px; width: 100%;  height: 40px;" onclick="limpiar()" data-bs-toggle="modal" data-bs-target="#planes360">Opciones</button>
+                    <div style="background-color: white; border-radius: 10px">
+                        <label id="planElegido" style="margin-left: 10px"></label><br />
+                        <label id="planDuracion" style="margin-left: 10px"></label><br />
+                        <label id="planCosto" style="margin-left: 10px"></label>
+                    </div>
+
+                    <div>
+                        <button type="submit" class="button3 text-center" style="margin-top: 10px; margin-bottom: 10px; width: 100%; height: 40px; " onclick="mediopago()">Pagar</button>
+                    </div>
+
+                </div>
+            </div>
         </div>
     </div>
 

@@ -85,76 +85,100 @@ $(document).ready(function () {
 })
 
 function mediopago() {
-    var pEle = document.getElementById("pEl").textContent;
-    var pDur = document.getElementById("pDu").textContent;
-    var pCos = document.getElementById("pCo").textContent;
+    var pEle = document.getElementById("planElegido").textContent;
+    var pDur = document.getElementById("planDuracion").textContent;
+    var pCos = document.getElementById("planCosto").textContent;
 
-    var card = document.getElementById("itarjeta").value;
-    var date = document.getElementById("ifecha").value;
-    var secCode = document.getElementById("icodigoseguridad").value;
-    var name = document.getElementById("inputNombre").value;
-    var surname = document.getElementById("inputApellidos").value;
-    var city = document.getElementById("iciudad").value;
-    var country = document.getElementById("ipais").value;
-    var address = document.getElementById("idireccion").value;
-    var postal = document.getElementById("ipostal").value;
-    var phone = document.getElementById("itelefono").value;
+    try {
+        var card = document.getElementById("itarjeta").value;
+        var date = document.getElementById("ifecha").value;
+        var secCode = document.getElementById("icodigoseguridad").value;
+        var name = document.getElementById("inputNombre").value;
+        var surname = document.getElementById("inputApellidos").value;
+        var city = document.getElementById("iciudad").value;
+        var country = document.getElementById("ipais").value;
+        var address = document.getElementById("idireccion").value;
+        var postal = document.getElementById("ipostal").value;
+        var phone = document.getElementById("itelefono").value;
+    } catch (error) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Información incompleta',
+            text: 'Por favor complete toda la información para continuar',
+            confirmButtonColor: "#012626",
+        });
+    }
 
-    if (pEle != "" && pDur != "" && pCos != "") {
-        if (card != "" && date != "" && secCode != "" && name != "" && surname != "" && city != "" && country != "" && address != "" && postal != "" && phone != "") {
-            $.ajax({
-                url: '../php/points/pointPayment.php',//ubicacion del ponit
-                method: 'POST',// metodo de envio
-                responseType: 'json',//formato recibido
-                data: {
-                    tarjeta: card, fecha: date, codseg: secCode, nombre: name, apellido: surname,
-                    ciudad: city, pais: country, direccion: address, codpostal: postal, telefono: phone
-                },//informacion que envio en json
-                async: false//hasta que termine la consulta no ejecuta el then
-            }).then(function (data) {
-                var div_log = document.getElementById("log_ingreso")
-                try {
-                    var dataRecive = JSON.parse(data);
-                    if (true) { //variable placeholder, no se cual es la condición de éxito
-                        Swal.fire({
-                            icon: 'success',
-                            confirmButtonText: "Entendido",
-                            confirmButtonColor: "#012626",
-                        });
+    $.ajax({
+        url: '../php/points/pointSession.php?info_session',
+        method: 'GET',
+        responseType: 'json',
+        async: false
+    }).then(function (data) {
+        try {
+            var id = dataReciveUsuario['info']['id_usuario'];
+        } catch (error) {
+            console.log(error);
+        }
 
-                        div_log.innerHTML += `<label class="col-10" style="color: white;"> --> Ingreso Exitoso de - ${email} : estatus: ${dataRecive["estatus"]} - mensaje: ${dataRecive["Mensaje"]} - Nombre: ${dataRecive["data_usuario"]["usuario"]}</label><br>
-                          `;
-                    } else {
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Hubo un error',
-                            text: 'La información dada no es correcta',
-                            confirmButtonColor: "#012626",
-                        });
-                        div_log.innerHTML += `<labelclass="col-10" style="color: red;"> --> Ingreso Fallido de - ${email} : Estatus ${dataRecive["estatus"]} - Mensaje ${dataRecive["Mensaje"]} </label><br>
-                          `;
+        const date = new Date();
+
+        let day = date.getDate();
+        let month = date.getMonth() + 1;
+        let year = date.getFullYear();
+
+        let currentDate = `${day}-${month}-${year}`;
+
+        if (pEle != "" && pDur != "" && pCos != "") {
+            if (id != "") {
+                $.ajax({
+                    url: '../php/points/pointPagos.php',
+                    method: 'POST',
+                    responseType: 'json',
+                    data: { id_usuario: id, tiempo_comprado: pDur, tipo_plan: pEle, fecha_pago: currentDate},
+                    async: false
+                }).then(function (data) {
+                    try {
+                        var dataReceive = JSON.parse(data);
+                        if (dataReceive["usuario"] == "Registrado") { //variable placeholder, no se cual es la condición de éxito
+                            Swal.fire({
+                                icon: 'success',
+                                confirmButtonText: "Entendido",
+                                title: 'Plan adquirido',
+                                confirmButtonColor: "#012626",
+                                
+                            }).then(function () { window.location.href = "mainUser.html";})
+                        } else {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Hubo un error',
+                                text: 'La información dada no es correcta',
+                                confirmButtonColor: "#012626",
+                            });
+                        }
+                    } catch (error) {
+                        console.log(data, error);
                     }
-
-                } catch (error) {
-                    console.log(data);
-                    div_log.innerHTML += `<labelclass="col-10" style="color: red;"> ***** ERROR DE LOGICA 500 </label><br>`;
-                }
-            });
+                });
 
 
-        }else {
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Ocurrió un error',
+                    confirmButtonColor: "#012626",
+                });
+            }
+        } else {
             Swal.fire({
                 icon: 'error',
                 title: 'Plan no elegido',
                 text: 'Por favor seleccione algún plan para continuar',
+                confirmButtonColor: "#012626",
             });
         }
-    } else {
-        Swal.fire({
-            icon: 'error',
-            title: 'Plan no elegido',
-            text: 'Por favor seleccione algún plan para continuar',
-        });
-    }
+    })
+
+    
 
 }
