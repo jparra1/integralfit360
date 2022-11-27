@@ -94,7 +94,7 @@ $(document).ready(function () {
       /*console.log(dataRecive['usuarios'][0]['nombre']);*/
       dataReciveProfesionales['usuarios'].forEach(element => {
         dataReciveSesiones['sesiones'].forEach(sesion => {
-          if (sesion.id_usario_interno == element.id_usuario && sesion.estado_sesion == "DISPONIBLE"){
+          if (sesion.id_usuario_interno == element.id_usuario && sesion.estado_sesion == "DISPONIBLE"){
             if (element.tipo_usuario == "SPORT"){
               divItemsInstructor.innerHTML += `<div class="accordion-item"><h2 class="accordion-header" id="heading${sesion.id_sesion}"> 
               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${sesion.id_sesion}" aria-expanded="false" aria-controls="collapse${sesion.id_sesion}">
@@ -143,7 +143,7 @@ $(document).ready(function () {
           dataReciveSesiones['sesiones'].forEach(sesion => {
             if (cita.id_sesion == sesion.id_sesion){
               dataReciveProfesionales['usuarios'].forEach(element => {
-                if (sesion.id_usario_interno == element.id_usuario){
+                if (sesion.id_usuario_interno == element.id_usuario){
                   divCitas.innerHTML += `<div class="row"><div class="col"><label>${sesion.hora_sesion}</label></div>
               <div class="col"><label>${sesion.fecha_sesion}</label></div>
               <div class="col"><label>${element.nombre}</label></div>
@@ -218,7 +218,7 @@ $(document).ready(function () {
             dataReciveSesiones['sesiones'].forEach(sesion => {
               if (dataReciveCitas['sesiones'][0]['id_sesion'] == sesion.id_sesion){
                 dataReciveProfesionales['usuarios'].forEach(profesional => {
-                  if (sesion.id_usario_interno == profesional.id_usuario){
+                  if (sesion.id_usuario_interno == profesional.id_usuario){
                     divCita.innerHTML += `<div><label>${sesion.fecha_sesion}</label><br><label>${sesion.hora_sesion}</label><br>
                     <a href="${dataReciveCitas['sesiones'][0]['url_sesion_meet']}" target="_blank">
                     <button class="btn btn-info button2" style="font-weight: bold; font-size: 13px;">Conectarme</button></a><div>`
@@ -257,7 +257,7 @@ $(document).ready(function () {
             dataReciveSesiones['sesiones'].forEach(sesion => {
               if (dataReciveCitas['sesiones'][0]['id_sesion'] == sesion.id_sesion){
                 dataReciveProfesionales['usuarios'].forEach(profesional => {
-                  if (sesion.id_usario_interno == profesional.id_usuario){
+                  if (sesion.id_usuario_interno == profesional.id_usuario){
                     divCita.innerHTML += `<div><label>${sesion.fecha_sesion}</label><br><label>${sesion.hora_sesion}</label><br>
                     <a href="${dataReciveCitas['sesiones'][0]['url_sesion_meet']}" target="_blank">
                     <button class="btn btn-info button2" style="font-weight: bold; font-size: 13px;">Conectarme</button></a><div>`
@@ -319,7 +319,7 @@ function agendarCita() {
           dataReciveSesiones['sesiones'].forEach(sesion => {
             if (cita.id_sesion == sesion.id_sesion){
               dataReciveProfesionales['usuarios'].forEach(element => {
-                if (sesion.id_usario_interno == element.id_usuario){
+                if (sesion.id_usuario_interno == element.id_usuario){
                   divCitas.innerHTML += `<div class="row"><div class="col"><label>${sesion.hora_sesion}</label></div>
               <div class="col"><label>${sesion.fecha_sesion}</label></div>
               <div class="col"><label>${element.nombre}</label></div>
