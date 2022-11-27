@@ -10,6 +10,13 @@ header("Access-control-Allow-Origin: *");
                 echo json_encode(array("usuarios"=>$resultado));
             exit();
         }
+        if (isset($_GET["usuarios_clientes"])) {
+            header("HTTP/1.1 200 OK");
+                $query="SELECT * FROM info_usuario";
+                $resultado=methodGET($query)->fetchAll();
+                echo json_encode(array("usuarios_clientes"=>$resultado));
+            exit();
+        }
     }
 header("HTTP/1.1 400 Bad Request");
 ?>
