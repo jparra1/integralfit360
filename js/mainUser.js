@@ -157,7 +157,6 @@ $(document).ready(function() {
     try {
       var dataReciveAsignaciones = JSON.parse(data);
       console.log(dataReciveAsignaciones);
-      console.log(dataReciveAsignaciones['estado'])
       if (dataReciveAsignaciones['estado'] == "Con sesiones"){
         dataReciveAsignaciones['sesiones'].forEach(sesion => {
           if (sesion.tipo_asignacion == "COMPLETE"){
@@ -166,6 +165,7 @@ $(document).ready(function() {
               divRutinas.innerHTML += `<div class="col"><a><img src='${rutina}'></a><div>`
             })
             var comida = sesion.contenido2_asignacion.split(";")
+            var receta = comida[2].replaceAll("\n", "<br>")
             divComida.innerHTML += `<div class="col text-center"><a><img src='${comida[0]}'></a></div>
             <div class="col"><button class="btn btn-info button2" style="font-weight: bold; font-size: 13px;" data-bs-toggle="modal" data-bs-target="#receta">Receta</button></div>`;
             divComida2.innerHTML += `<div class="col text-center"><p>${comida[1]}</p></div>
@@ -179,7 +179,7 @@ $(document).ready(function() {
                     <div class="modal-body" id="modalReceta">
                     <div class="text-center"><a><img src='${comida[0]}'></a></div>
                     <br>
-                    <div>${comida[2]}</div>
+                    <div>${receta}</div>
                     </div>
                     <div class="modal-footer">
                     </div>
@@ -212,6 +212,7 @@ $(document).ready(function() {
 
           if (sesion.tipo_asignacion == "HEALTH"){
             var comida = sesion.contenido2_asignacion.split(";")
+            var receta = comida[2].replaceAll("\n", "<br>")
             divComida.innerHTML += `<div class="col text-center"><a><img src='${comida[0]}'></a></div>
             <div class="col"><button class="btn btn-info button2" style="font-weight: bold; font-size: 13px;" data-bs-toggle="modal" data-bs-target="#receta">Receta</button></div>`;
             divComida2.innerHTML += `<div class="col text-center"><p>${comida[1]}</p></div>
@@ -225,7 +226,7 @@ $(document).ready(function() {
                     <div class="modal-body" id="modalReceta">
                     <div class="text-center"><a><img src='${comida[0]}'></a></div>
                     <br>
-                    <div>${comida[2]}</div>
+                    <div>${receta}</div>
                     </div>
                     <div class="modal-footer">
                     </div>
