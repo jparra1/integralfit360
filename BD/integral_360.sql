@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-11-2022 a las 19:34:20
+-- Tiempo de generación: 27-11-2022 a las 21:12:55
 -- Versión del servidor: 10.4.22-MariaDB
 -- Versión de PHP: 8.0.13
 
@@ -46,7 +46,9 @@ CREATE TABLE `asignaciones_a_usuarios` (
 INSERT INTO `asignaciones_a_usuarios` (`id_asignacion`, `id_usuario_asignado`, `tipo_asignacion`, `id_user_interno`, `contenido1_asignacion`, `contenido2_asignacion`, `comentarios_asignacion`, `fecha_asignacion`, `estado_asignacion`) VALUES
 (1, 1, 'SPORT', '1', '../images/sentadrllas.png;../images/sprint.png', '', '', '2022-11-26', 'ASIGNADA'),
 (2, 1, 'HEALTH', '1', '', '..../images/omelette.png; Ingredientes:\n5 huevos2 cdas. de agua fría (30 ml)\nSal al gusto (3 gr)\nPimienta al gusto (3 gr)1 cda. de aceite Cocinero (15ml)\nPreparacion:\nColocar los huevos en un tazón con el agua fría y salpimentar al gusto. Batirlos ligeramente y reservar. Agregar aceite en una sartén. Llevar a fuego moderado hasta que se derrita y volcar la preparación anterior. Distribuir en forma pareja con una espátula hasta que cuaje. Cuando los bordes comienzan a despegarse, agregar, si desea, jamón picado o queso mantecoso. Doblar el omelette hacia un lado. Retirar y servir de inmediato en un plato.\n\nEsta misma preparación puede realizarse al horno, enmantequillando 4 moldes bajos y espolvoreando pan rallado en cada uno. Llevar a un horno precalentado unos 10 minutos y retirar cuando se dore.\n\nLos omelettes también quedan muy sabrosos si agregamos hierbas al gusto picadas (perejil, finas hierbas) al batido de huevos o si cambiamos el relleno por atún, pollo cocido, granos de choclo sancochados, arvejas, etcétera. El secreto es que queden jugosos por dentro.', '', '2022-11-26', 'ASIGNADA'),
-(3, 1, 'COMPLETE', '1', '../images/sentadrllas.png;../images/sprint.png', '..../images/omelette.png; Ingredientes:\n5 huevos2 cdas. de agua fría (30 ml)\nSal al gusto (3 gr)\nPimienta al gusto (3 gr)1 cda. de aceite Cocinero (15ml)\nPreparacion:\nColocar los huevos en un tazón con el agua fría y salpimentar al gusto. Batirlos ligeramente y reservar. Agregar aceite en una sartén. Llevar a fuego moderado hasta que se derrita y volcar la preparación anterior. Distribuir en forma pareja con una espátula hasta que cuaje. Cuando los bordes comienzan a despegarse, agregar, si desea, jamón picado o queso mantecoso. Doblar el omelette hacia un lado. Retirar y servir de inmediato en un plato.\n\nEsta misma preparación puede realizarse al horno, enmantequillando 4 moldes bajos y espolvoreando pan rallado en cada uno. Llevar a un horno precalentado unos 10 minutos y retirar cuando se dore.\n\nLos omelettes también quedan muy sabrosos si agregamos hierbas al gusto picadas (perejil, finas hierbas) al batido de huevos o si cambiamos el relleno por atún, pollo cocido, granos de choclo sancochados, arvejas, etcétera. El secreto es que queden jugosos por dentro.', '', '2022-11-26', 'ASIGNADA');
+(3, 1, 'COMPLETE', '1', '../images/sentadrllas.png;../images/sprint.png', '..../images/omelette.png; Ingredientes:\n5 huevos2 cdas. de agua fría (30 ml)\nSal al gusto (3 gr)\nPimienta al gusto (3 gr)1 cda. de aceite Cocinero (15ml)\nPreparacion:\nColocar los huevos en un tazón con el agua fría y salpimentar al gusto. Batirlos ligeramente y reservar. Agregar aceite en una sartén. Llevar a fuego moderado hasta que se derrita y volcar la preparación anterior. Distribuir en forma pareja con una espátula hasta que cuaje. Cuando los bordes comienzan a despegarse, agregar, si desea, jamón picado o queso mantecoso. Doblar el omelette hacia un lado. Retirar y servir de inmediato en un plato.\n\nEsta misma preparación puede realizarse al horno, enmantequillando 4 moldes bajos y espolvoreando pan rallado en cada uno. Llevar a un horno precalentado unos 10 minutos y retirar cuando se dore.\n\nLos omelettes también quedan muy sabrosos si agregamos hierbas al gusto picadas (perejil, finas hierbas) al batido de huevos o si cambiamos el relleno por atún, pollo cocido, granos de choclo sancochados, arvejas, etcétera. El secreto es que queden jugosos por dentro.', '', '2022-11-26', 'ASIGNADA'),
+(6, 1, 'SPORT', '7', '1', '1', '1', '2222-11-27', 'ASIGNADA'),
+(7, 1, 'SPORT', '7', '1', '2', '3', '2222-11-27', 'ASIGNADA');
 
 -- --------------------------------------------------------
 
@@ -74,7 +76,7 @@ CREATE TABLE `info_usuario` (
 --
 
 INSERT INTO `info_usuario` (`id_usuario`, `nombre_usuario`, `apellido_usuario`, `email_usuario`, `password_usuario`, `edad_usuario`, `genero_usuario`, `peso_usuario`, `estatura_usuario`, `observaciones_usuario`, `plan_adquirido`, `fecha_inscripcion`) VALUES
-(1, 'prueba', 'prueba', 'email@prueba.com', '123123', '23', 0, '70', '160', 'Presento dolencias en el pie derecho y tengo una operacion de columna', 'SPORT', '2022-11-17'),
+(1, 'prueba', 'prueba ', 'email@prueba.com', '123123', '23', 0, '70', '160', 'Presento dolencias en el pie derecho y tengo una operacion de columna', 'SPORT', '2022-11-17'),
 (2, 'prueba', 'prueba', 'email2@prueba.com', '123123', '23', 0, '70', '160', 'Presento dolencias en el pie derecho y tengo una operacion de columna', 'COMPLETE', '2022-11-18'),
 (3, 'prueba', 'prueba', 'email3@prueba.com', '123123', '23', 0, '70', '160', 'Presento dolencias en el pie derecho y tengo una operacion de columna', '', '0000-00-00'),
 (4, 'prueba', 'prueba', 'email4@prueba.com', '123123', '23', 0, '70', '160', 'Presento dolencias en el pie derecho y tengo una operacion de columna', '', '0122-10-18'),
@@ -137,7 +139,7 @@ INSERT INTO `sesiones_agendadas` (`id_sesion_agendada`, `id_sesion`, `id_usuario
 
 CREATE TABLE `sesiones_disponibles` (
   `id_sesion` int(11) NOT NULL,
-  `id_usario_interno` int(11) NOT NULL,
+  `id_usuario_interno` int(11) NOT NULL,
   `titulo_sesion` text NOT NULL,
   `estado_sesion` text NOT NULL,
   `hora_sesion` time NOT NULL,
@@ -148,10 +150,16 @@ CREATE TABLE `sesiones_disponibles` (
 -- Volcado de datos para la tabla `sesiones_disponibles`
 --
 
-INSERT INTO `sesiones_disponibles` (`id_sesion`, `id_usario_interno`, `titulo_sesion`, `estado_sesion`, `hora_sesion`, `fecha_sesion`) VALUES
+INSERT INTO `sesiones_disponibles` (`id_sesion`, `id_usuario_interno`, `titulo_sesion`, `estado_sesion`, `hora_sesion`, `fecha_sesion`) VALUES
 (1, 7, 'Acompanamiento deportivo', 'ASIGNADA', '14:00:00', '2022-11-29'),
 (2, 8, 'Dieta deportiva y suplementaria ', 'DISPONIBLE', '11:00:00', '2022-11-29'),
-(3, 7, 'Acompanamiento deportivo en casa', 'ASIGNADA', '15:00:00', '2022-11-29');
+(3, 7, 'Acompanamiento deportivo en casa', 'ASIGNADA', '15:00:00', '2022-11-29'),
+(5, 0, 'El arte del ejercicio en casa', 'DISPONIBLE', '14:30:00', '2022-11-29'),
+(6, 7, 'titulo 2', 'DISPONIBLE', '15:50:00', '2022-11-30'),
+(7, 7, 'titulo 1', 'DISPONIBLE', '13:50:00', '2022-11-30'),
+(8, 7, 'titulo 3', 'DISPONIBLE', '13:00:00', '2022-11-29'),
+(9, 7, 'cita 2', 'DISPONIBLE', '13:00:00', '2022-12-01'),
+(10, 7, '4', 'DISPONIBLE', '16:00:00', '2022-11-29');
 
 -- --------------------------------------------------------
 
@@ -223,7 +231,7 @@ ALTER TABLE `usuarios_interno`
 -- AUTO_INCREMENT de la tabla `asignaciones_a_usuarios`
 --
 ALTER TABLE `asignaciones_a_usuarios`
-  MODIFY `id_asignacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_asignacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `info_usuario`
@@ -247,7 +255,7 @@ ALTER TABLE `sesiones_agendadas`
 -- AUTO_INCREMENT de la tabla `sesiones_disponibles`
 --
 ALTER TABLE `sesiones_disponibles`
-  MODIFY `id_sesion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_sesion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios_interno`
