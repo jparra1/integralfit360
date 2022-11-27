@@ -1,6 +1,7 @@
 var dataReciveSesiones;
 var dataReciveUsuario;
 var dataReciveProfesionales;
+var dataReciveCitas;
 
 $(document).ready(function() {
   $.ajax({
@@ -10,7 +11,6 @@ $(document).ready(function() {
     async: false
   }).then(function(data){
     try {
-      console.log(data)
       dataReciveUsuario = JSON.parse(data);
       /*console.log(dataReciveUsuario);
       /*console.log(dataReciveUsuario['usuarios'][0]['nombre']);*/
@@ -27,10 +27,18 @@ $(document).ready(function() {
       if (dataReciveUsuario['info']['plan_adquirido'] == "SPORT"){
         document.getElementById("nutricionistaDiv").hidden = true;
         document.getElementById("comida").hidden = true;
+        document.getElementById("profesionalesNutricionista").hidden = true;
       }
       if (dataReciveUsuario['info']['plan_adquirido'] == "HEALTH"){
         document.getElementById("instructorDiv").hidden = true;
         document.getElementById("rutina").hidden = true;
+        document.getElementById("profesionalesInstructor").hidden = true;
+      }
+
+      if (dataReciveUsuario['info']['plan_adquirido'] == "COMPLETE"){
+        document.getElementById("citaAgendada").hidden = true;
+        document.getElementById("profesionalesInstructor").hidden = true;
+        document.getElementById("profesionalesNutricionista").hidden = true;
       }
     } catch (error){
       console.log(error)
@@ -45,7 +53,7 @@ $(document).ready(function() {
   }).then(function(data){
     try {
       dataReciveSesiones = JSON.parse(data);
-      console.log(dataReciveSesiones);
+      /*console.log(dataReciveSesiones);*/
     } catch (error) {
       console.log(error)
     }
@@ -62,7 +70,7 @@ $(document).ready(function() {
   }).then(function(data){
     try {
       dataReciveProfesionales = JSON.parse(data);
-      console.log(dataReciveProfesionales);
+      /*console.log(dataReciveProfesionales);
       /*console.log(dataRecive['usuarios'][0]['nombre']);*/
       dataReciveProfesionales['usuarios'].forEach(element => {
         dataReciveSesiones['sesiones'].forEach(sesion => {
@@ -109,8 +117,7 @@ $(document).ready(function() {
     async: false
   }).then(function(data){
     try {
-      var dataReciveCitas = JSON.parse(data);
-      console.log(dataReciveCitas)
+      dataReciveCitas = JSON.parse(data);
       if (dataReciveCitas['estado'] == "Con sesiones"){
         dataReciveCitas['sesiones'].forEach(cita => {
           dataReciveSesiones['sesiones'].forEach(sesion => {
@@ -131,6 +138,121 @@ $(document).ready(function() {
       }
     } catch (error) {
       console.log(error);
+    }
+  })
+
+  var divRutinas = document.getElementById("entrenamiento");
+  var divComida = document.getElementById("dieta1");
+  var divComida2 = document.getElementById("dieta2");
+  var divCita = document.getElementById("citaAgenda");
+  var divProfesionalInstructor = document.getElementById("profesionalInstructor");
+  var divProfesionalNutricionista = document.getElementById("profesionalNutricionista");
+
+  $.ajax({
+    url:'../php/points/pointAsignaciones.php?id_usuario=' + dataReciveUsuario['info']['id_usuario'],
+    method:'GET',
+    responseType:'json',
+    async: false
+  }).then(function(data){
+    try {
+      var dataReciveAsignaciones = JSON.parse(data);
+      console.log(dataReciveAsignaciones);
+      console.log(dataReciveAsignaciones['estado'])
+      if (dataReciveAsignaciones['estado'] == "Con sesiones"){
+        dataReciveAsignaciones['sesiones'].forEach(sesion => {
+          if (sesion.tipo_asignacion == "COMPLETE"){
+            var rutinas = sesion.contenido1_asignacion.split(";");
+            rutinas.forEach(rutina => {
+              divRutinas.innerHTML += `<div class="col"><a><img src='${rutina}'></a><div>`
+            })
+            var comida = sesion.contenido2_asignacion.split(";")
+            divComida.innerHTML += `<div class="col text-center"><a><img src='${comida[0]}'></a></div>
+            <div class="col"><button class="btn btn-info button2" style="font-weight: bold; font-size: 13px;" data-bs-toggle="modal" data-bs-target="#receta">Receta</button></div>`;
+            divComida2.innerHTML += `<div class="col text-center"><p>${comida[1]}</p></div>
+            <div class="col"></div> <div class="modal fade" id="receta" tabindex="-1" aria-labelledby="planes360Label" aria-hidden="true" data-bs-backdrop="static">
+            <div class="modal-dialog modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="planes360Label" style="font-size: 25px; font-weight: bold; margin-left: 9px;">${comida[1]}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" id="modalReceta">
+                    <div class="text-center"><a><img src='${comida[0]}'></a></div>
+                    <br>
+                    <div>${comida[2]}</div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+          </div>`;
+          }
+
+          if (sesion.tipo_asignacion == "SPORT"){
+            var rutinas = sesion.contenido1_asignacion.split(";");
+            console.log(rutinas)
+            rutinas.forEach(rutina => {
+              divRutinas.innerHTML += `<div class="col"><a><img src='${rutina}'></a><div>`
+            })
+
+            dataReciveSesiones['sesiones'].forEach(sesion => {
+              if (dataReciveCitas['sesiones'][0]['id_sesion'] == sesion.id_sesion){
+                dataReciveProfesionales['usuarios'].forEach(profesional => {
+                  if (sesion.id_usario_interno == profesional.id_usuario){
+                    divCita.innerHTML += `<div><label>${sesion.fecha_sesion}</label><br><label>${sesion.hora_sesion}</label><br>
+                    <a href="${dataReciveCitas['sesiones'][0]['url_sesion_meet']}" target="_blank">
+                    <button class="btn btn-info button2" style="font-weight: bold; font-size: 13px;">Conectarme</button></a><div>`
+                    divProfesionalInstructor.innerHTML += `<div class="col"><a><img src="../images/perfil-de-usuario.webp" style="width: 80px; height: 80px; border-radius: 40px; margin-right: 30px;"></a>
+                    ${profesional.nombre}</div>`
+                  }
+                })
+              }
+            })
+          }
+
+          if (sesion.tipo_asignacion == "HEALTH"){
+            var comida = sesion.contenido2_asignacion.split(";")
+            divComida.innerHTML += `<div class="col text-center"><a><img src='${comida[0]}'></a></div>
+            <div class="col"><button class="btn btn-info button2" style="font-weight: bold; font-size: 13px;" data-bs-toggle="modal" data-bs-target="#receta">Receta</button></div>`;
+            divComida2.innerHTML += `<div class="col text-center"><p>${comida[1]}</p></div>
+            <div class="col"></div> <div class="modal fade" id="receta" tabindex="-1" aria-labelledby="planes360Label" aria-hidden="true" data-bs-backdrop="static">
+            <div class="modal-dialog modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="planes360Label" style="font-size: 25px; font-weight: bold; margin-left: 9px;">${comida[1]}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" id="modalReceta">
+                    <div class="text-center"><a><img src='${comida[0]}'></a></div>
+                    <br>
+                    <div>${comida[2]}</div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+          </div>`;
+
+            dataReciveSesiones['sesiones'].forEach(sesion => {
+              if (dataReciveCitas['sesiones'][0]['id_sesion'] == sesion.id_sesion){
+                dataReciveProfesionales['usuarios'].forEach(profesional => {
+                  if (sesion.id_usario_interno == profesional.id_usuario){
+                    divCita.innerHTML += `<div><label>${sesion.fecha_sesion}</label><br><label>${sesion.hora_sesion}</label><br>
+                    <a href="${dataReciveCitas['sesiones'][0]['url_sesion_meet']}" target="_blank">
+                    <button class="btn btn-info button2" style="font-weight: bold; font-size: 13px;">Conectarme</button></a><div>`
+                    divProfesionalNutricionista.innerHTML += `<div class="col"><a><img src="../images/perfil-de-usuario.webp" style="width: 80px; height: 80px; border-radius: 40px; margin-right: 30px;"></a>
+                    ${profesional.nombre}</div>`
+                  }
+                })
+              }
+            })
+          }
+        })
+      }else{
+        console.log("no hay")
+      }
+    } catch (error) {
+      console.log(error)
     }
   })
 })
@@ -157,6 +279,38 @@ function agendarCita() {
         confirmButtonText: "Entendido",
         confirmButtonColor: "#012626",
       });
+    } catch (error) {
+      console.log(error);
+    }
+  })
+
+  $.ajax({
+    url:'../php/points/pointAgenCita.php?id_usuario=' + dataReciveUsuario['info']['id_usuario'],
+    method:'GET',
+    responseType:'json',
+    async: false
+  }).then(function(data){
+    try {
+      var dataReciveCitas = JSON.parse(data);
+      /*console.log(dataReciveCitas)*/
+      if (dataReciveCitas['estado'] == "Con sesiones"){
+        dataReciveCitas['sesiones'].forEach(cita => {
+          dataReciveSesiones['sesiones'].forEach(sesion => {
+            if (cita.id_sesion == sesion.id_sesion){
+              dataReciveProfesionales['usuarios'].forEach(element => {
+                if (sesion.id_usario_interno == element.id_usuario){
+                  divCitas.innerHTML += `<div class="row"><div class="col"><label>${sesion.hora_sesion}</label></div>
+              <div class="col"><label>${sesion.fecha_sesion}</label></div>
+              <div class="col"><label>${element.nombre}</label></div>
+              <div class="col"><a href="${cita.url_sesion_meet}" target="_blank" style="text-decoration:none; color=: black">Ir a la sesion</a></div></div><hr>`
+                }
+              })
+            }
+          })
+        })
+      }else {
+        divCitas.innerHTML += `<div>No hay citas agendadas</div>`
+      }
     } catch (error) {
       console.log(error);
     }
