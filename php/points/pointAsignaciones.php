@@ -10,19 +10,18 @@ include '../ApiRest.php';
                 $query="SELECT * FROM asignaciones_a_usuarios WHERE id_usuario_asignado='".$_POST['id_usuario_asignado']."'";
                 $resultado=methodGET($query)->fetch(PDO::FETCH_ASSOC);
                 if ($resultado) {
-                    if ($_POST["tipo_asignacion"]=="SPORT") {
+                    $textSQL="";
+                    if ($_POST["tipo_asignacion_usuario"]=="SPORT") {
                         $textSQL="contenido1_asignacion='".$_POST["contenido1_asignacion"]."'";
-                    }elseif ($_POST["tipo_asignacion"]=="HEALTH") {
+                    }elseif ($_POST["tipo_asignacion_usuario"]=="HEALTH") {
                         $textSQL="contenido2_asignacion='".$_POST["contenido2_asignacion"]."'";
-                    }elseif ($_POST["tipo_asignacion"]=="COMPLETE") {
-                        $textSQL="contenido1_asignacion='".$_POST["contenido1_asignacion"]."',contenido2_asignacion='".$_POST["contenido2_asignacion"]."'";
-    
                     }else {
                         header("HTTP/1.1 400 Bad Request");
                         exit();
                     }
                     $query="UPDATE asignaciones_a_usuarios SET 
                     ".$textSQL.",
+                    tipo_asignacion='".$_POST["tipo_asignacion"]."',
                     id_user_interno='".$_POST["id_user_interno"]."',
                     comentarios_asignacion='".$_POST["comentarios_asignacion"]."' 
                     WHERE id_usuario_asignado='".$_POST["id_usuario_asignado"]."'";
@@ -50,6 +49,7 @@ include '../ApiRest.php';
                         '".$_POST["comentarios_asignacion"]."',
                         '".$_POST["fecha_asignacion"]."',
                         '".$_POST["estado_asignacion"]."')";
+                    $id="SELECT MAX(id_asignacion) as id_asignacion FROM asignaciones_a_usuarios";
                     $resultado=methodPOST($query, $id)->fetch(PDO::FETCH_ASSOC);
                     echo json_encode(array("asignacion"=>"realizada","info"=>$resultado));
                     exit();

@@ -145,7 +145,8 @@ function crearAsignacion() {
         responseType: 'json',
         data: {
           id_usuario_asignado:document.getElementById("crearAsignacion").value,
-          tipo_asignacion:dataRecive["info"]["tipo_usuario"],
+          tipo_asignacion:usuarios_clientes["usuarios_clientes"].find(x=> x["id_usuario"]==document.getElementById("crearAsignacion").value)["plan_adquirido"],
+          tipo_asignacion_usuario:dataRecive["info"]["tipo_usuario"],
           id_user_interno: dataRecive["info"]["id_usuario"],
           contenido1_asignacion: asingacion1,
           contenido2_asignacion: asingacion2,
