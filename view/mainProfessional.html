@@ -58,7 +58,7 @@
     <div class="row col-lg-10 col-sm-11 col-12 mx-auto">
       <div class="col-lg-2 col-md-6 col-sm-10 col-11 mx-auto" style="background-color: #04BFBF; margin-left: 20px; margin-top: 20px; border-radius: 10px;">
         <div class="row text-center" style="margin-top: 10px;">
-          <a><img src="../images/perfil-de-usuario.webp" style="width: 150px; height: 150px; border-radius: 75px;"></a>
+          <a id="foto_entrenador"></a>
         </div>
         <div class="row text-center" style="margin-top: 20px;">
           <label id="nombreUsuario" style="color: #012626; font-weight: bold;"></label>
@@ -134,17 +134,26 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="col-12 mx-auto text-center row">
-                        <label id="correo" class="col-md-3 col-sm-10 col- my-auto">Asignacion Deportiva</label><br>
-                        <textarea name="Asignacion_Recomendaciones" id="Asignacion_Deportiva" class="col-md-8 col-sm- col- my-auto" rows="" placeholder="ingresa la ruta de las imagenes que debe de realizar el usuario (separada por ;)"></textarea>
+                    <div class="col-12 mx-auto text-center row"> 
+                      <div id="SPORT" style="display:none;margin-top: 10px;" class="row col-12 mx-auto">
+                        <label id="correo" class="col-md-3 col-sm-10 col-12 my-center mx-auto">Asignacion Deportiva</label>
+                        <textarea name="Asignacion_Recomendaciones" id="Asignacion_Deportiva" class="col-md-8 col-sm-10 col-12 my-center mx-auto" rows="" placeholder="ingresa la ruta de las imagenes que debe de realizar el usuario (separada por ;)"></textarea>
+                      </div>
+                        
                         <br>
                         <br>
-                        <label id="correo" class="col-md-3 col-sm-10 col- my-auto">Asignacion Alimentaria</label><br>
-                        <textarea name="Asignacion_Recomendaciones" id="Asignacion_Alimentaria" class="col-md-8 col-sm- col- my-auto" rows="" placeholder="Ingrese en el orden de : ruta de imagen;titulo,receta de la alimentacion (separada por ;)"></textarea>
+                        <div id="HEALTH" style="display:none;margin-top: 10px;" class="row col-12 mx-auto">
+                          <label id="correo" class="col-md-3 col-sm-10 col-12 my-center mx-auto">Asignacion Alimentaria</label>
+                          <textarea name="Asignacion_Recomendaciones" id="Asignacion_Alimentaria" class="col-md-8 col-sm-10 col-12 my-center mx-auto" rows="" placeholder="Ingrese en el orden de : ruta de imagen;titulo,receta de la alimentacion (separada por ;)"></textarea>
+                        </div>
+                        
                         <br>
-                        <br>
-                        <label id="correo" class="col-md-3 col-sm-10 col- my-auto">Recomendaciones y seguimiento</label><br>
-                        <textarea name="Asignacion_Recomendaciones" id="Asignacion_Recomendaciones" class="col-md-8 col-sm- col- my-auto" rows="" placeholder="Ingrese los comentarios referente a la asignacion"></textarea>
+                        
+                        <div style="margin-top: 10px;" class="row col-12 mx-auto">
+                          <label id="correo" class="col-md-3 col-sm-10 col-12 my-center mx-auto" style="margin-top: 10px;">Recomendaciones y seguimiento</label><br>
+                          <textarea name="Asignacion_Recomendaciones" id="Asignacion_Recomendaciones" class="col-md-8 col-sm-10 col-12 my-center mx-auto" rows="" placeholder="Ingrese los comentarios referente a la asignacion"></textarea>
+                        </div>
+                        
                         <br>
                         <br> 
                         <button type="submit" id="crearAsignacion" onclick="crearAsignacion()" class="col-md-4 col-sm-8 col-8 text-center mx-auto buttonHistory" style="margin-top: 10px; padding: 2px;" value="0" >Crear</button>
