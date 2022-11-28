@@ -2,27 +2,28 @@ var dataReciveSesiones;
 var dataReciveUsuario;
 var dataReciveProfesionales;
 var dataReciveCitas;
+var dataReciveAsignaciones;
 
 $(document).ready(function () {
-    $.ajax({
-        url: '../php/points/pointSession.php?info_session',//ubicacion del ponit
-        method: 'GET',// metodo de envio
-        responseType: 'json',//formato recibido
-        async: false//hasta que termine la consulta no ejecuta el then
 
-    }).then(function (data) {
-        console.log(data);
-        var dataRecive = JSON.parse(data);
-        try {
-            if (dataRecive["estado"] == "No session") {
-                window.location.replace("index.html")
-            } else {
-                null;
-            }
-        } catch (error) {
-            console.log(error, data);
+  $.ajax({
+    url: '../php/points/pointSession.php?info_session',//ubicacion del ponit
+    method: 'GET',// metodo de envio
+    responseType: 'json',//formato recibido
+    async: false//hasta que termine la consulta no ejecuta el then
+  }).then(function (data) {
+    console.log(data);
+    var dataRecive = JSON.parse(data);
+    try {
+        if (dataRecive["estado"] == "No session") {
+            window.location.replace("index.html")
+        } else {
+            null;
         }
-    });
+    } catch (error) {
+        console.log(error, data);
+    }
+  });
 
   $.ajax({
     url:'../php/points/pointSession.php?info_session',
@@ -90,40 +91,49 @@ $(document).ready(function () {
   }).then(function(data){
     try {
       dataReciveProfesionales = JSON.parse(data);
+      var sesionesInstructor = 0;
+      var sesionesNutricionista = 0;
       /*console.log(dataReciveProfesionales);
       /*console.log(dataRecive['usuarios'][0]['nombre']);*/
       dataReciveProfesionales['usuarios'].forEach(element => {
         dataReciveSesiones['sesiones'].forEach(sesion => {
           if (sesion.id_usuario_interno == element.id_usuario && sesion.estado_sesion == "DISPONIBLE"){
             if (element.tipo_usuario == "SPORT"){
+              sesionesInstructor = sesionesInstructor + 1;
               divItemsInstructor.innerHTML += `<div class="accordion-item"><h2 class="accordion-header" id="heading${sesion.id_sesion}"> 
               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${sesion.id_sesion}" aria-expanded="false" aria-controls="collapse${sesion.id_sesion}">
-              <a><img src="../images/perfil-de-usuario.webp" style="width: 80px; height: 80px; border-radius: 40px; margin-right: 30px;"></a>
+              <a><img src="../images/${element.id_usuario}.png" style="width: 80px; height: 80px; border-radius: 40px; margin-right: 30px;"></a>
               <p style="font-style: italic;">Instructor: ${element.nombre} <br> Sesion: ${sesion.titulo_sesion}</p></button></h2>
               <div id="collapse${sesion.id_sesion}" class="accordion-collapse collapse" aria-labelledby="heading${sesion.id_sesion}" data-bs-parent="#accordionInstructor">
               <div class="accordion-body"><div class="row"><div class="col-lg-3" style="margin-left: 20px;"><label style="margin-bottom: 16px; margin-top: 16px; font-size: 15px; font-weight: bold;" class="col-lg-8">Agendar cita</label>
               <div><p>${sesion.fecha_sesion}</p></div></div>
-              <div class="col-lg-5" style="margin-left: 20px;"><label style="margin-bottom: 16px; margin-top: 16px; font-size: 15px; font-weight: bold;" class="col-lg-8">Horarios disponibles</label>
+              <div class="col-lg-5" style="margin-left: 20px;"><label style="margin-bottom: 16px; margin-top: 16px; font-size: 15px; font-weight: bold;" class="col-lg-8">Horario disponible</label>
               <div><p>${sesion.hora_sesion}</p></div></div><div class="col-lg-2"><p style="margin-top: 25px;">
-              <a class="btn btn-info button5" role="button" id="agendarCita" onclick="agendarCita()">Agendar</a></p></div></div></div></div></div>
-              <input type="hidden" id="sesion" value="${sesion.id_sesion}">`
+              <a class="btn btn-info button5" role="button" id="agendarCita" onclick="agendarCitaInstructor()">Agendar</a></p></div></div></div></div></div>
+              <input type="hidden" id="sesionInstructor" value="${sesion.id_sesion}">`
             }
             if (element.tipo_usuario == "HEALTH"){
+              sesionesNutricionista = sesionesNutricionista + 1;
               divItemsNutricionista.innerHTML += `<div class="accordion-item"><h2 class="accordion-header" id="heading${sesion.id_sesion}"> 
               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${sesion.id_sesion}" aria-expanded="false" aria-controls="collapse${sesion.id_sesion}">
-              <a><img src="../images/perfil-de-usuario.webp" style="width: 80px; height: 80px; border-radius: 40px; margin-right: 30px;"></a>
-              <p style="font-style: italic;">Nutricionista: ${element.nombre}</p> <p>Sesión: ${sesion.titulo_sesion}</p></button></h2>
+              <a><img src="../images/${element.id_usuario}.png" style="width: 80px; height: 80px; border-radius: 40px; margin-right: 30px;"></a>
+              <p style="font-style: italic;">Nutricionista: ${element.nombre} <br> Sesión: ${sesion.titulo_sesion}</p></button></h2>
               <div id="collapse${sesion.id_sesion}" class="accordion-collapse collapse" aria-labelledby="heading${sesion.id_sesion}" data-bs-parent="#accordionNutricionista">
               <div class="accordion-body"><div class="row"><div class="col-lg-3" style="margin-left: 20px;"><label style="margin-bottom: 16px; margin-top: 16px; font-size: 15px; font-weight: bold;" class="col-lg-8">Agendar cita</label>
               <div><p>${sesion.fecha_sesion}</p></div></div>
-              <div class="col-lg-5" style="margin-left: 20px;"><label style="margin-bottom: 16px; margin-top: 16px; font-size: 15px; font-weight: bold;" class="col-lg-8">Horarios disponibles</label>
+              <div class="col-lg-5" style="margin-left: 20px;"><label style="margin-bottom: 16px; margin-top: 16px; font-size: 15px; font-weight: bold;" class="col-lg-8">Horario disponible</label>
               <div><p>${sesion.hora_sesion}</p></div></div><div class="col-lg-2"><p style="margin-top: 25px;">
-              <a class="btn btn-info button5" role="button" id="agendarCita" onclick="agendarCita()">Agendar</a></p></div></div></div></div></div>
-              <input type="hidden" id="sesion" value="${sesion.id_sesion}">`
+              <a class="btn btn-info button5" role="button" id="agendarCita" onclick="agendarCitaNutricionista()">Agendar</a></p></div></div></div></div></div>
+              <input type="hidden" id="sesionNutricionista" value="${sesion.id_sesion}">`
             }
           }
         })
       });
+      if(sesionesInstructor == 0){
+        divItemsInstructor.innerHTML += `<p class="titulos">No hay sesiones disponibles</p>`
+      }else if(sesionesNutricionista == 0){
+        divItemsNutricionista.innerHTML += `<p class="titulos">No hay sesiones disponibles</p>`
+      }
     } catch (error){
       console.log(error)
     }
@@ -175,9 +185,11 @@ $(document).ready(function () {
     async: false
   }).then(function(data){
     try {
-      var dataReciveAsignaciones = JSON.parse(data);
-      console.log(dataReciveAsignaciones);
+      dataReciveAsignaciones = JSON.parse(data);
+      
       if (dataReciveAsignaciones['estado'] == "Con sesiones"){
+        document.getElementById("inicio").style.display = "block";
+        document.getElementById("sinAsignaciones").style.display = "none";
         dataReciveAsignaciones['sesiones'].forEach(sesion => {
           if (sesion.tipo_asignacion == "COMPLETE"){
             var rutinas = sesion.contenido1_asignacion.split(";");
@@ -222,7 +234,7 @@ $(document).ready(function () {
                     divCita.innerHTML += `<div><label>${sesion.fecha_sesion}</label><br><label>${sesion.hora_sesion}</label><br>
                     <a href="${dataReciveCitas['sesiones'][0]['url_sesion_meet']}" target="_blank">
                     <button class="btn btn-info button2" style="font-weight: bold; font-size: 13px;">Conectarme</button></a><div>`
-                    divProfesionalInstructor.innerHTML += `<div class="col"><a><img src="../images/perfil-de-usuario.webp" style="width: 80px; height: 80px; border-radius: 40px; margin-right: 30px;"></a>
+                    divProfesionalInstructor.innerHTML += `<div class="col"><a><img src="../images/${profesional.id_usuario}.png" style="width: 80px; height: 80px; border-radius: 40px; margin-right: 30px;"></a>
                     ${profesional.nombre}</div>`
                   }
                 })
@@ -261,7 +273,7 @@ $(document).ready(function () {
                     divCita.innerHTML += `<div><label>${sesion.fecha_sesion}</label><br><label>${sesion.hora_sesion}</label><br>
                     <a href="${dataReciveCitas['sesiones'][0]['url_sesion_meet']}" target="_blank">
                     <button class="btn btn-info button2" style="font-weight: bold; font-size: 13px;">Conectarme</button></a><div>`
-                    divProfesionalNutricionista.innerHTML += `<div class="col"><a><img src="../images/perfil-de-usuario.webp" style="width: 80px; height: 80px; border-radius: 40px; margin-right: 30px;"></a>
+                    divProfesionalNutricionista.innerHTML += `<div class="col"><a><img src="../images/${profesional.id_usuario}.png" style="width: 80px; height: 80px; border-radius: 40px; margin-right: 30px;"></a>
                     ${profesional.nombre}</div>`
                   }
                 })
@@ -270,7 +282,8 @@ $(document).ready(function () {
           }
         })
       }else{
-        console.log("no hay")
+        document.getElementById("inicio").style.display = "none";
+        document.getElementById("sinAsignaciones").style.display = "block";
       }
     } catch (error) {
         console.log(error, data)
@@ -278,8 +291,8 @@ $(document).ready(function () {
   })
 })
 
-function agendarCita() {
-  var id_sesion = document.getElementById("sesion").value;
+function agendarCitaInstructor() {
+  var id_sesion = document.getElementById("sesionInstructor").value;
   
   $.ajax({
     url: '../php/points/pointAgenCita.php',
@@ -299,47 +312,52 @@ function agendarCita() {
         title: 'Cita Agendada con éxito',
         confirmButtonText: "Entendido",
         confirmButtonColor: "#012626",
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  })
-
-  $.ajax({
-    url:'../php/points/pointAgenCita.php?id_usuario=' + dataReciveUsuario['info']['id_usuario'],
-    method:'GET',
-    responseType:'json',
-    async: false
-  }).then(function(data){
-    try {
-      var dataReciveCitas = JSON.parse(data);
-      /*console.log(dataReciveCitas)*/
-      if (dataReciveCitas['estado'] == "Con sesiones"){
-        dataReciveCitas['sesiones'].forEach(cita => {
-          dataReciveSesiones['sesiones'].forEach(sesion => {
-            if (cita.id_sesion == sesion.id_sesion){
-              dataReciveProfesionales['usuarios'].forEach(element => {
-                if (sesion.id_usuario_interno == element.id_usuario){
-                  divCitas.innerHTML += `<div class="row"><div class="col"><label>${sesion.hora_sesion}</label></div>
-              <div class="col"><label>${sesion.fecha_sesion}</label></div>
-              <div class="col"><label>${element.nombre}</label></div>
-              <div class="col"><a href="${cita.url_sesion_meet}" target="_blank" style="text-decoration:none; color=: black">Ir a la sesion</a></div></div><hr>`
-                }
-              })
-            }
-          })
-        })
-      }else {
-        divCitas.innerHTML += `<div>No hay citas agendadas</div>`
-      }
+      }).then(function () {setTimeout(function(){location.reload()},800);})
     } catch (error) {
       console.log(error);
     }
   })
 }
 
+
+function agendarCitaNutricionista() {
+  var id_sesion = document.getElementById("sesionNutricionista").value;
+  
+  $.ajax({
+    url: '../php/points/pointAgenCita.php',
+    method: 'POST',
+    responseType: 'json',
+    data: {
+      id_sesion: id_sesion, id_usuario: dataReciveUsuario['info']['id_usuario'],
+      url_sesion_meet: "https://meet.google.com/fhn-cubu-qzg", estado_sesion: "AGENDADA"
+    },
+    async: false
+  }).then(function (data) {
+    try {
+      var dataReciveCitaAgendada = JSON.parse(data);
+      collapseInicio()
+      Swal.fire({
+        icon: 'success',
+        title: 'Cita Agendada con éxito',
+        confirmButtonText: "Entendido",
+        confirmButtonColor: "#012626",
+      }).then(function () {setTimeout(function(){location.reload()},800);})
+      
+    } catch (error) {
+      console.log(error);
+    }
+  })
+}
+
+
 function collapseInicio(){
-  document.getElementById("inicio").style.display = "block";
+  if (dataReciveAsignaciones['estado'] == "Con sesiones"){
+    document.getElementById("inicio").style.display = "block";
+    document.getElementById("sinAsignaciones").style.display = "none";
+  }else {
+    document.getElementById("inicio").style.display = "none";
+    document.getElementById("sinAsignaciones").style.display = "block";
+  }
   document.getElementById("instructor").style.display = "none";
   document.getElementById("nutricionista").style.display = "none";
 
@@ -354,6 +372,7 @@ function collapseInicio(){
 
 function collapseInstructor(){
   document.getElementById("inicio").style.display = "none";
+  document.getElementById("sinAsignaciones").style.display = "none";
   document.getElementById("instructor").style.display = "block";
   document.getElementById("nutricionista").style.display = "none";
 
@@ -368,6 +387,7 @@ function collapseInstructor(){
 
 function collapseNutricionista(){
   document.getElementById("inicio").style.display = "none";
+  document.getElementById("sinAsignaciones").style.display = "none";
   document.getElementById("instructor").style.display = "none";
   document.getElementById("nutricionista").style.display = "block";
 
