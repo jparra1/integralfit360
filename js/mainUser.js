@@ -102,7 +102,7 @@ $(document).ready(function () {
               sesionesInstructor = sesionesInstructor + 1;
               divItemsInstructor.innerHTML += `<div class="accordion-item"><h2 class="accordion-header" id="heading${sesion.id_sesion}"> 
               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${sesion.id_sesion}" aria-expanded="false" aria-controls="collapse${sesion.id_sesion}">
-              <a><img src="../images/${element.id_usuario}.png" style="width: 80px; height: 80px; border-radius: 40px; margin-right: 30px;"></a>
+              <a><img src="../images/${element.id_usuario}_user.png" style="width: 80px; height: 80px; border-radius: 40px; margin-right: 30px;"></a>
               <p style="font-style: italic;">Instructor: ${element.nombre} <br> Sesion: ${sesion.titulo_sesion}</p></button></h2>
               <div id="collapse${sesion.id_sesion}" class="accordion-collapse collapse" aria-labelledby="heading${sesion.id_sesion}" data-bs-parent="#accordionInstructor">
               <div class="accordion-body"><div class="row"><div class="col-lg-3" style="margin-left: 20px;"><label style="margin-bottom: 16px; margin-top: 16px; font-size: 15px; font-weight: bold;" class="col-lg-8">Agendar cita</label>
@@ -116,7 +116,7 @@ $(document).ready(function () {
               sesionesNutricionista = sesionesNutricionista + 1;
               divItemsNutricionista.innerHTML += `<div class="accordion-item"><h2 class="accordion-header" id="heading${sesion.id_sesion}"> 
               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${sesion.id_sesion}" aria-expanded="false" aria-controls="collapse${sesion.id_sesion}">
-              <a><img src="../images/${element.id_usuario}.png" style="width: 80px; height: 80px; border-radius: 40px; margin-right: 30px;"></a>
+              <a><img src="../images/${element.id_usuario}_user.png" style="width: 80px; height: 80px; border-radius: 40px; margin-right: 30px;"></a>
               <p style="font-style: italic;">Nutricionista: ${element.nombre} <br> Sesión: ${sesion.titulo_sesion}</p></button></h2>
               <div id="collapse${sesion.id_sesion}" class="accordion-collapse collapse" aria-labelledby="heading${sesion.id_sesion}" data-bs-parent="#accordionNutricionista">
               <div class="accordion-body"><div class="row"><div class="col-lg-3" style="margin-left: 20px;"><label style="margin-bottom: 16px; margin-top: 16px; font-size: 15px; font-weight: bold;" class="col-lg-8">Agendar cita</label>
@@ -234,7 +234,7 @@ $(document).ready(function () {
                     divCita.innerHTML += `<div><label>${sesion.fecha_sesion}</label><br><label>${sesion.hora_sesion}</label><br>
                     <a href="${dataReciveCitas['sesiones'][0]['url_sesion_meet']}" target="_blank">
                     <button class="btn btn-info button2" style="font-weight: bold; font-size: 13px;">Conectarme</button></a><div>`
-                    divProfesionalInstructor.innerHTML += `<div class="col"><a><img src="../images/${profesional.id_usuario}.png" style="width: 80px; height: 80px; border-radius: 40px; margin-right: 30px;"></a>
+                    divProfesionalInstructor.innerHTML += `<div class="col"><a><img src="../images/${profesional.id_usuario}_user.png" style="width: 80px; height: 80px; border-radius: 40px; margin-right: 30px;"></a>
                     ${profesional.nombre}</div>`
                   }
                 })
@@ -273,7 +273,7 @@ $(document).ready(function () {
                     divCita.innerHTML += `<div><label>${sesion.fecha_sesion}</label><br><label>${sesion.hora_sesion}</label><br>
                     <a href="${dataReciveCitas['sesiones'][0]['url_sesion_meet']}" target="_blank">
                     <button class="btn btn-info button2" style="font-weight: bold; font-size: 13px;">Conectarme</button></a><div>`
-                    divProfesionalNutricionista.innerHTML += `<div class="col"><a><img src="../images/${profesional.id_usuario}.png" style="width: 80px; height: 80px; border-radius: 40px; margin-right: 30px;"></a>
+                    divProfesionalNutricionista.innerHTML += `<div class="col"><a><img src="../images/${profesional.id_usuario}_user.png" style="width: 80px; height: 80px; border-radius: 40px; margin-right: 30px;"></a>
                     ${profesional.nombre}</div>`
                   }
                 })
